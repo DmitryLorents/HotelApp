@@ -8,23 +8,23 @@
 import UIKit
 
 class HotelViewController: UIViewController {
-
+    
+    //MARK: - Parameters
+    let hotelView = HotelView()
+    
+//MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        setupViews()
 
         // Do any additional setup after loading the view.
     }
+
+//MARK: - Methods
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupViews() {
+        view = hotelView
+        hotelView.backgroundColor = .cyan
+        title = HotelModel.title
     }
-    */
-
 }
