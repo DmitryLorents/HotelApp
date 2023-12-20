@@ -23,6 +23,7 @@
 		0AA56E132B3315EC008BF50B /* NumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E092B3315EC008BF50B /* NumberModel.swift */; };
 		0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E0B2B3315EC008BF50B /* NumberView.swift */; };
 		0AA56E162B3320FE008BF50B /* HotelParsingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */; };
+		0AA56E1A2B332A26008BF50B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA56E192B332A26008BF50B /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA56E1A2B332A26008BF50B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +267,9 @@
 			dependencies = (
 			);
 			name = HotelApp;
+			packageProductDependencies = (
+				0AA56E192B332A26008BF50B /* SnapKit */,
+			);
 			productName = HotelApp;
 			productReference = 0A5BF8212B330FB800206621 /* HotelApp.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +298,9 @@
 				Base,
 			);
 			mainGroup = 0A5BF8182B330FB800206621;
+			packageReferences = (
+				0AA56E182B332A26008BF50B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 0A5BF8222B330FB800206621 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -540,6 +548,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0AA56E182B332A26008BF50B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0AA56E192B332A26008BF50B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AA56E182B332A26008BF50B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A5BF8192B330FB800206621 /* Project object */;
 }
