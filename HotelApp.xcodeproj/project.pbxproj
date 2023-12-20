@@ -22,6 +22,7 @@
 		0AA56E122B3315EC008BF50B /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E072B3315EC008BF50B /* NumberViewController.swift */; };
 		0AA56E132B3315EC008BF50B /* NumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E092B3315EC008BF50B /* NumberModel.swift */; };
 		0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E0B2B3315EC008BF50B /* NumberView.swift */; };
+		0AA56E162B3320FE008BF50B /* HotelParsingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0AA56E072B3315EC008BF50B /* NumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
 		0AA56E092B3315EC008BF50B /* NumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberModel.swift; sourceTree = "<group>"; };
 		0AA56E0B2B3315EC008BF50B /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelParsingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +76,8 @@
 		0A5BF8232B330FB800206621 /* HotelApp */ = {
 			isa = PBXGroup;
 			children = (
-				0AA56DEC2B3314D0008BF50B /* Modules */,
 				0A5BF8382B33120200206621 /* App */,
+				0AA56DEC2B3314D0008BF50B /* Modules */,
 				0A5BF8392B33120F00206621 /* SupportingFiles */,
 			);
 			path = HotelApp;
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA56DF52B33157B008BF50B /* HotelModel.swift */,
+				0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */,
 				0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */,
 				0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */,
+				0AA56E162B3320FE008BF50B /* HotelParsingModel.swift in Sources */,
 				0AA56E0D2B3315EC008BF50B /* BookingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
