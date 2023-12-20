@@ -117,9 +117,9 @@
 		0AA56DED2B3314DF008BF50B /* HotelModule */ = {
 			isa = PBXGroup;
 			children = (
-				0AA56DF02B331516008BF50B /* Controller */,
-				0AA56DEF2B33150E008BF50B /* View */,
 				0AA56DEE2B3314FD008BF50B /* Model */,
+				0AA56DEF2B33150E008BF50B /* View */,
+				0AA56DF02B331516008BF50B /* Controller */,
 			);
 			path = HotelModule;
 			sourceTree = "<group>";

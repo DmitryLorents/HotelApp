@@ -12,4 +12,6 @@ enum HotelModel {
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12
     static let backgroundColor = UIColor(named: "BackgroundColor")
+    static let bottomViewHeight: CGFloat = 88
+    static let buttonTitle = "К выбору номера"
 }
