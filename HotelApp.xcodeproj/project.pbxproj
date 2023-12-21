@@ -24,6 +24,7 @@
 		0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E0B2B3315EC008BF50B /* NumberView.swift */; };
 		0AA56E162B3320FE008BF50B /* HotelParsingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */; };
 		0AA56E1A2B332A26008BF50B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA56E192B332A26008BF50B /* SnapKit */; };
+		0AC0A3562B34165000975C54 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC0A3552B34165000975C54 /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		0AA56E092B3315EC008BF50B /* NumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberModel.swift; sourceTree = "<group>"; };
 		0AA56E0B2B3315EC008BF50B /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		0AA56E152B3320FE008BF50B /* HotelParsingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelParsingModel.swift; sourceTree = "<group>"; };
+		0AC0A3552B34165000975C54 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		0A5BF8232B330FB800206621 /* HotelApp */ = {
 			isa = PBXGroup;
 			children = (
+				0AC0A3542B34163B00975C54 /* Extensions */,
 				0A5BF8382B33120200206621 /* App */,
 				0AA56DEC2B3314D0008BF50B /* Modules */,
 				0A5BF8392B33120F00206621 /* SupportingFiles */,
@@ -251,6 +254,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0AC0A3542B34163B00975C54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0AC0A3552B34165000975C54 /* UIView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,6 +341,7 @@
 				0AA56E132B3315EC008BF50B /* NumberModel.swift in Sources */,
 				0AA56E102B3315EC008BF50B /* OrderModel.swift in Sources */,
 				0AA56DF62B33157B008BF50B /* HotelModel.swift in Sources */,
+				0AC0A3562B34165000975C54 /* UIView + Extension.swift in Sources */,
 				0AA56E0F2B3315EC008BF50B /* OrderViewController.swift in Sources */,
 				0AA56E0E2B3315EC008BF50B /* BookingView.swift in Sources */,
 				0AA56E0C2B3315EC008BF50B /* BookingViewController.swift in Sources */,

@@ -12,6 +12,10 @@ enum HotelModel {
     static let starLabelText = "  ★ 5 Превосходно  "
     static let buttonTitle = "К выбору номера"
     static let hotelName = "Steigenberger Makadi"
+    static let hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет"
+    static let hotelPriceBeginning = "от "
+    static let priceString = "134 673 Р"
+    static let hotelPriceEnd = " за тур с перелетом"
     
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12
@@ -25,4 +29,5 @@ enum HotelModel {
     
     static let standardFont16 = UIFont.systemFont(ofSize: 16)
     static let standardFont22 = UIFont.systemFont(ofSize: 22)
+    static let standardFont30 = UIFont.systemFont(ofSize: 30)
 }

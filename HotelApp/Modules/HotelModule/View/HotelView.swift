@@ -3,7 +3,7 @@
 import UIKit
 import SnapKit
 
-class HotelView: UIView {
+final class HotelView: UIView {
 
     //MARK: - Parameters
     
@@ -46,6 +46,33 @@ class HotelView: UIView {
         label.font = HotelModel.standardFont22
         return label
     }()
+    private let hotelAdressButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(HotelModel.hotelAdress, for: .normal)
+        return button
+    }()
+    
+    private let priceLabel: UILabel = {
+        //TODO - To make price formatter
+        let label = UILabel()
+        //beginning
+        let beginningAttributes: [NSAttributedString.Key: Any] = [.font: HotelModel.standardFont30]
+        let beginningAttributeContainer = AttributeContainer(beginningAttributes)
+        let beginningAttString = AttributedString((HotelModel.hotelPriceBeginning + HotelModel.priceString),attributes: beginningAttributeContainer)
+        
+       //end
+        let endAttributes: [NSAttributedString.Key: Any] = [
+            .font: HotelModel.standardFont16,
+            .foregroundColor: UIColor.gray
+        ]
+        let endAttContainer = AttributeContainer(endAttributes)
+        let endAttString = AttributedString(HotelModel.hotelPriceEnd, attributes: endAttContainer)
+        let fullAttText = beginningAttString + endAttString
+        label.attributedText = NSAttributedString(fullAttText)
+        return label
+    }()
+    
+    
     private let secondView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -89,21 +116,17 @@ class HotelView: UIView {
         super.layoutSubviews()
         print(#function)
         scrollView.contentSize = CGSize(width: 400, height: 1500)//
-        print(contentView.bounds.size)
+        print(contentView.frame.size)
     }
     
     //MARK: - Methods
     private func setupViews() {
         //backgroundColor = HotelModel.backgroundColor
-        addSubview(scrollView)
+        addSubviews(scrollView, thirdView)
         contentView.backgroundColor = .blue
         scrollView.addSubview(contentView)
-        contentView.addSubview(firstView)
-        firstView.addSubview(topCollectionView)
-        firstView.addSubview(starLabel)
-        firstView.addSubview(hotelNameLabel)
-        contentView.addSubview(secondView)
-        addSubview(thirdView)
+        contentView.addSubviews(firstView, secondView)
+        firstView.addSubviews(topCollectionView, starLabel,hotelNameLabel, hotelAdressButton, priceLabel)
         thirdView.addSubview(numberChoosingButton)
     }
     
@@ -115,12 +138,13 @@ class HotelView: UIView {
         }
         contentView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self)
-            make.height.equalTo(800)
+            make.height.equalTo(1000)
         }
         firstView.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview()
+            //make.height.equalTo(600)
             //TODO - delete later
-            make.height.equalTo(530)
+            
         }
         
         topCollectionView.snp.makeConstraints { make in
@@ -139,11 +163,23 @@ class HotelView: UIView {
             make.leading.equalTo(topCollectionView)
             make.top.equalTo(starLabel.snp.bottom).inset(-8)
         }
+        hotelAdressButton.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.height.equalTo(17)
+            make.top.equalTo(hotelNameLabel.snp.bottom).inset(0)
+        }
+        priceLabel.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.top.equalTo(hotelAdressButton.snp.bottom).inset(-16)
+            make.bottom.equalTo(firstView).inset(16)
+        }
+        
         
         secondView.snp.makeConstraints { make in
             make.top.equalTo(firstView.snp.bottom).inset(-8)
-            make.leading.trailing.height.equalTo(firstView)
+            make.leading.trailing.equalTo(firstView)
             make.bottom.equalTo(contentView).inset(8)
+            make.height.equalTo(500)
         }
         
         thirdView.snp.makeConstraints { make in
