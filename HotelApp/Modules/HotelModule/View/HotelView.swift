@@ -35,8 +35,15 @@ class HotelView: UIView {
         label.text = HotelModel.starLabelText
         label.backgroundColor = HotelModel.orangeLabelBackgroundColor
         label.textColor = HotelModel.orangeLabelTextColor
+        label.font = HotelModel.standardFont16
         label.layer.cornerRadius = 5
         label.clipsToBounds = true
+        return label
+    }()
+    private let hotelNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = HotelModel.hotelName
+        label.font = HotelModel.standardFont22
         return label
     }()
     private let secondView: UIView = {
@@ -55,7 +62,7 @@ class HotelView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = HotelModel.buttonBackground
         let attributes : [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16),
+            .font: HotelModel.standardFont16,
             .foregroundColor: UIColor.white
         ]
         let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
@@ -94,6 +101,7 @@ class HotelView: UIView {
         contentView.addSubview(firstView)
         firstView.addSubview(topCollectionView)
         firstView.addSubview(starLabel)
+        firstView.addSubview(hotelNameLabel)
         contentView.addSubview(secondView)
         addSubview(thirdView)
         thirdView.addSubview(numberChoosingButton)
@@ -125,6 +133,11 @@ class HotelView: UIView {
             make.top.equalTo(topCollectionView.snp.bottom).inset(-16)
             make.leading.equalTo(topCollectionView)
             make.height.equalTo(29)
+        }
+        
+        hotelNameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.top.equalTo(starLabel.snp.bottom).inset(-8)
         }
         
         secondView.snp.makeConstraints { make in
