@@ -79,6 +79,32 @@ final class HotelView: UIView {
         view.layer.cornerRadius = HotelModel.viewCornerRadius
         return view
     }()
+    private let aboutHotelLabel: UILabel = {
+        let label = UILabel()
+        label.text = HotelModel.aboutHotelString
+        label.font = HotelModel.standardFont22
+        return label
+    }()
+    private lazy var optionsCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = .gray
+        return view
+    }()
+    private let hotelDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = HotelModel.hotelDescription
+        label.font = HotelModel.standardFont16
+        label.numberOfLines = 0
+        return label
+    }()
+    private lazy var buttonsTableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.backgroundColor = .brown//HotelModel.tableViewBackgroundColor
+        table.rowHeight = 184 / 3
+        return table
+    }()
+    
+    
     private let thirdView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -111,12 +137,11 @@ final class HotelView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - Set scrollView content size
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(#function)
-        scrollView.contentSize = CGSize(width: 400, height: 1500)//
-        print(contentView.frame.size)
+        scrollView.contentSize = contentView.bounds.size
+        
     }
     
     //MARK: - Methods
@@ -127,6 +152,7 @@ final class HotelView: UIView {
         scrollView.addSubview(contentView)
         contentView.addSubviews(firstView, secondView)
         firstView.addSubviews(topCollectionView, starLabel,hotelNameLabel, hotelAdressButton, priceLabel)
+        secondView.addSubviews(aboutHotelLabel, optionsCollectionView, hotelDescriptionLabel, buttonsTableView)
         thirdView.addSubview(numberChoosingButton)
     }
     
@@ -138,13 +164,9 @@ final class HotelView: UIView {
         }
         contentView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self)
-            make.height.equalTo(1000)
         }
         firstView.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview()
-            //make.height.equalTo(600)
-            //TODO - delete later
-            
         }
         
         topCollectionView.snp.makeConstraints { make in
@@ -166,7 +188,7 @@ final class HotelView: UIView {
         hotelAdressButton.snp.makeConstraints { make in
             make.leading.equalTo(topCollectionView)
             make.height.equalTo(17)
-            make.top.equalTo(hotelNameLabel.snp.bottom).inset(0)
+            make.top.equalTo(hotelNameLabel.snp.bottom).inset(-8)
         }
         priceLabel.snp.makeConstraints { make in
             make.leading.equalTo(topCollectionView)
@@ -174,14 +196,36 @@ final class HotelView: UIView {
             make.bottom.equalTo(firstView).inset(16)
         }
         
-        
+        //second view
         secondView.snp.makeConstraints { make in
             make.top.equalTo(firstView.snp.bottom).inset(-8)
             make.leading.trailing.equalTo(firstView)
             make.bottom.equalTo(contentView).inset(8)
-            make.height.equalTo(500)
+            //make.height.equalTo(500)
         }
         
+        aboutHotelLabel.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.top.equalToSuperview().inset(16)
+        }
+        optionsCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.height.equalTo(topCollectionView)
+            make.top.equalTo(aboutHotelLabel.snp.bottom).inset(-16)
+        }
+        hotelDescriptionLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(topCollectionView)
+            make.top.equalTo(optionsCollectionView.snp.bottom).inset(-12)
+        }
+        buttonsTableView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(topCollectionView)
+            make.top.equalTo(hotelDescriptionLabel.snp.bottom).inset(-16)
+            make.height.equalTo(184)
+            make.bottom.equalToSuperview().inset(16)
+        }
+        
+        
+        
+        //bottomView
         thirdView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(scrollView.snp.bottom)

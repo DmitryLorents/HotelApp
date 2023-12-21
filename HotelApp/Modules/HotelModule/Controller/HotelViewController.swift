@@ -20,7 +20,8 @@ class HotelViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         hotelView.layoutSubviews()
     }
 
