@@ -23,6 +23,22 @@ class HotelView: UIView {
         return view
     }()
     
+    private lazy var topCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = .gray
+        view.layer.cornerRadius = HotelModel.imageCornerRadius
+        view.clipsToBounds = true
+        return view
+    }()
+    private let starLabel: UILabel = {
+        let label = UILabel()
+        label.text = HotelModel.starLabelText
+        label.backgroundColor = HotelModel.orangeLabelBackgroundColor
+        label.textColor = HotelModel.orangeLabelTextColor
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        return label
+    }()
     private let secondView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -37,15 +53,17 @@ class HotelView: UIView {
     
     private lazy var numberChoosingButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(HotelModel.buttonTitle, for: .normal)
-        return button
-    }()
-    
-    private lazy var topCollectionView: UICollectionView = {
-        let view = UICollectionView()
-        view.backgroundColor = .yellow
-        return view
+        button.backgroundColor = HotelModel.buttonBackground
+        let attributes : [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 16),
+            .foregroundColor: UIColor.white
+        ]
+        let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.layer.cornerRadius = HotelModel.buttonCornerRadius
+        button.setTitleColor(.white, for: .normal)
         
+        return button
     }()
     
     //MARK: - Init
@@ -74,6 +92,8 @@ class HotelView: UIView {
         contentView.backgroundColor = .blue
         scrollView.addSubview(contentView)
         contentView.addSubview(firstView)
+        firstView.addSubview(topCollectionView)
+        firstView.addSubview(starLabel)
         contentView.addSubview(secondView)
         addSubview(thirdView)
         thirdView.addSubview(numberChoosingButton)
@@ -93,6 +113,18 @@ class HotelView: UIView {
             make.leading.trailing.top.equalToSuperview()
             //TODO - delete later
             make.height.equalTo(530)
+        }
+        
+        topCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(16)
+            make.height.equalTo(topCollectionView.snp.width).multipliedBy(257.0/343.0)
+        }
+        
+        starLabel.snp.makeConstraints { make in
+            make.top.equalTo(topCollectionView.snp.bottom).inset(-16)
+            make.leading.equalTo(topCollectionView)
+            make.height.equalTo(29)
         }
         
         secondView.snp.makeConstraints { make in
