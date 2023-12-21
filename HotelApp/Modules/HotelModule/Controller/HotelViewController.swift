@@ -29,7 +29,13 @@ class HotelViewController: UIViewController {
     
     private func setupViews() {
         view = hotelView
-        hotelView.backgroundColor = .cyan
         title = HotelModel.title
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
+        hotelView.setupView(model: nil, buttonAction: tapGestureRecognizer)
+    }
+    
+    @objc private func navigationAction() {
+        print(#function)
+        navigationController?.pushViewController(NumberViewController(), animated: true)
     }
 }

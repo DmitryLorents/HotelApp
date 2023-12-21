@@ -4,13 +4,12 @@ import UIKit
 import SnapKit
 
 final class HotelView: UIView {
-
+    
     //MARK: - Parameters
     
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.showsVerticalScrollIndicator = false
-        view.backgroundColor = .yellow//HotelModel.backgroundColor
         return view
     }()
     
@@ -60,7 +59,7 @@ final class HotelView: UIView {
         let beginningAttributeContainer = AttributeContainer(beginningAttributes)
         let beginningAttString = AttributedString((HotelModel.hotelPriceBeginning + HotelModel.priceString),attributes: beginningAttributeContainer)
         
-       //end
+        //end
         let endAttributes: [NSAttributedString.Key: Any] = [
             .font: HotelModel.standardFont16,
             .foregroundColor: UIColor.gray
@@ -114,6 +113,7 @@ final class HotelView: UIView {
     private lazy var numberChoosingButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = HotelModel.buttonBackground
+        button.isUserInteractionEnabled = true
         let attributes : [NSAttributedString.Key: Any] = [
             .font: HotelModel.standardFont16,
             .foregroundColor: UIColor.white
@@ -145,17 +145,25 @@ final class HotelView: UIView {
     }
     
     //MARK: - Methods
+    
+    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
+        
+        numberChoosingButton.addGestureRecognizer(buttonAction)
+    }
+    
     private func setupViews() {
-        //backgroundColor = HotelModel.backgroundColor
+        backgroundColor = .systemBackground
+        contentView.backgroundColor = HotelModel.backgroundColor
         addSubviews(scrollView, thirdView)
-        contentView.backgroundColor = .blue
         scrollView.addSubview(contentView)
         contentView.addSubviews(firstView, secondView)
         firstView.addSubviews(topCollectionView, starLabel,hotelNameLabel, hotelAdressButton, priceLabel)
         secondView.addSubviews(aboutHotelLabel, optionsCollectionView, hotelDescriptionLabel, buttonsTableView)
         thirdView.addSubview(numberChoosingButton)
     }
-    
+}
+//MARK: - Set constraints
+extension HotelView {
     private func setupConstraints() {
         
         scrollView.snp.makeConstraints { make in
