@@ -110,21 +110,22 @@ final class HotelView: UIView {
         return view
     }()
     
-    private lazy var numberChoosingButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = HotelModel.buttonBackground
-        button.isUserInteractionEnabled = true
-        let attributes : [NSAttributedString.Key: Any] = [
-            .font: HotelModel.standardFont16,
-            .foregroundColor: UIColor.white
-        ]
-        let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        button.layer.cornerRadius = HotelModel.buttonCornerRadius
-        button.setTitleColor(.white, for: .normal)
-        
-        return button
-    }()
+    private var numberChoosingButton: UIButton = .makeBlueButton(title: HotelModel.buttonTitle)
+//    {
+//        let button = UIButton(type: .system)
+//        button.backgroundColor = HotelModel.buttonBackground
+//        button.isUserInteractionEnabled = true
+//        let attributes : [NSAttributedString.Key: Any] = [
+//            .font: HotelModel.standardFont16,
+//            .foregroundColor: UIColor.white
+//        ]
+//        let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
+//        button.setAttributedTitle(attributedTitle, for: .normal)
+//        button.layer.cornerRadius = HotelModel.buttonCornerRadius
+//        button.setTitleColor(.white, for: .normal)
+//        
+//        return button
+//    }()
     
     //MARK: - Init
     
@@ -141,6 +142,7 @@ final class HotelView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.contentSize = contentView.bounds.size
+        //print("self.contentScaleFactor", self.contentScaleFactor )
         
     }
     
