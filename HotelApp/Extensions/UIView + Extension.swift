@@ -11,4 +11,10 @@ extension UIView {
     func addSubviews(_ views: UIView...) {
         views.forEach { self.addSubview($0) }
     }
+    func makeWhiteView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = HotelModel.viewCornerRadius
+        return view
+    }
 }

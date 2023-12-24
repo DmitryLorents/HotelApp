@@ -15,12 +15,7 @@ final class HotelView: UIView {
     
     private let contentView = UIView()
     
-    private let firstView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = HotelModel.viewCornerRadius
-        return view
-    }()
+    private lazy var firstView: UIView = makeWhiteView()
     
     private lazy var topCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -51,33 +46,11 @@ final class HotelView: UIView {
         return button
     }()
     
-    private let priceLabel: UILabel = {
-        //TODO - To make price formatter
-        let label = UILabel()
-        //beginning
-        let beginningAttributes: [NSAttributedString.Key: Any] = [.font: HotelModel.standardFont30]
-        let beginningAttributeContainer = AttributeContainer(beginningAttributes)
-        let beginningAttString = AttributedString((HotelModel.hotelPriceBeginning + HotelModel.priceString),attributes: beginningAttributeContainer)
-        
-        //end
-        let endAttributes: [NSAttributedString.Key: Any] = [
-            .font: HotelModel.standardFont16,
-            .foregroundColor: UIColor.gray
-        ]
-        let endAttContainer = AttributeContainer(endAttributes)
-        let endAttString = AttributedString(HotelModel.hotelPriceEnd, attributes: endAttContainer)
-        let fullAttText = beginningAttString + endAttString
-        label.attributedText = NSAttributedString(fullAttText)
-        return label
-    }()
+    private let priceLabel: UILabel = .makePriceLabel(title: HotelModel.hotelPriceBeginning + HotelModel.priceString, subtitle: HotelModel.hotelPriceEnd)
     
+    //secondView
     
-    private let secondView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = HotelModel.viewCornerRadius
-        return view
-    }()
+    private lazy var secondView: UIView = makeWhiteView()
     private let aboutHotelLabel: UILabel = {
         let label = UILabel()
         label.text = HotelModel.aboutHotelString
@@ -103,29 +76,10 @@ final class HotelView: UIView {
         return table
     }()
     
-    
-    private let thirdView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
+    //thirdView
+    private lazy var thirdView: UIView = makeWhiteView()
     
     private var numberChoosingButton: UIButton = .makeBlueButton(title: HotelModel.buttonTitle)
-//    {
-//        let button = UIButton(type: .system)
-//        button.backgroundColor = HotelModel.buttonBackground
-//        button.isUserInteractionEnabled = true
-//        let attributes : [NSAttributedString.Key: Any] = [
-//            .font: HotelModel.standardFont16,
-//            .foregroundColor: UIColor.white
-//        ]
-//        let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
-//        button.setAttributedTitle(attributedTitle, for: .normal)
-//        button.layer.cornerRadius = HotelModel.buttonCornerRadius
-//        button.setTitleColor(.white, for: .normal)
-//        
-//        return button
-//    }()
     
     //MARK: - Init
     

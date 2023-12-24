@@ -9,22 +9,30 @@ import UIKit
 
 class BookingViewController: UIViewController {
 
+    //MARK: - Parameters
+    let bookingView = BookingView()
+    
+//MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-
-        // Do any additional setup after loading the view.
+        setupViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        bookingView.layoutSubviews()
     }
-    */
 
+//MARK: - Methods
+    
+    private func setupViews() {
+        view = bookingView
+        title = BookingModel.title
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
+        bookingView.setupView(model: nil, buttonAction: tapGestureRecognizer)
+    }
+    
+    @objc private func navigationAction() {
+        navigationController?.pushViewController(OrderViewController(), animated: true)
+    }
 }

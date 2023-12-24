@@ -39,25 +39,36 @@ class NumberTableViewCell: UITableViewCell {
         return view
     }()
     
-    private var aboutNumberButton : UIButton = .makeBlueButton(title: NumberModel.buttonTitle)
-    
-    private lazy var numberChoosingButton: UIButton = {
+    private lazy var aboutNumberButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = HotelModel.buttonBackground
+        button.backgroundColor = NumberModel.aboutNumberBAckgroundColor?.withAlphaComponent(0.1)
         button.isUserInteractionEnabled = true
         let attributes : [NSAttributedString.Key: Any] = [
             .font: HotelModel.standardFont16,
-            .foregroundColor: UIColor.white
+            .foregroundColor: NumberModel.aboutNumberBAckgroundColor
         ]
-        let attributedTitle = NSAttributedString(string: HotelModel.buttonTitle, attributes: attributes)
+        let attributedTitle = NSAttributedString(string: NumberModel.subButtonTitle, attributes: attributes)
         button.setAttributedTitle(attributedTitle, for: .normal)
-        button.layer.cornerRadius = HotelModel.buttonCornerRadius
-        button.setTitleColor(.white, for: .normal)
-        
         return button
     }()
     
+    private var priceLabel: UILabel = .makePriceLabel(title: NumberModel.numberPriceBeginning, subtitle: NumberModel.numberPriceEnd)
+    
+    private var numberChoosingButton : UIButton = .makeBlueButton(title: NumberModel.buttonTitle)
+    
+    
+    
 //MARK: - Init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setViews()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,11 +84,16 @@ class NumberTableViewCell: UITableViewCell {
     
     //MARK: - Methods
     
+    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
+        
+        numberChoosingButton.addGestureRecognizer(buttonAction)
+    }
+    
     private func setViews() {
         //TODO - Change to background
-        contentView.backgroundColor = .yellow
+        contentView.backgroundColor = NumberModel.backgroundColor
         contentView.addSubview(cellBackgroundView)
-        cellBackgroundView.addSubviews(topCollectionView, descriptionLabel, optionsCollectionView)
+        cellBackgroundView.addSubviews(topCollectionView, descriptionLabel, optionsCollectionView, aboutNumberButton, priceLabel, numberChoosingButton)
     }
     
     private func setConstraints() {
@@ -100,6 +116,20 @@ class NumberTableViewCell: UITableViewCell {
             make.leading.trailing.equalTo(topCollectionView)
             make.height.equalTo(29)
             make.top.equalTo(descriptionLabel.snp.bottom).inset(-8)
+        }
+        aboutNumberButton.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.top.equalTo(optionsCollectionView.snp.bottom).inset(-8)
+            make.height.equalTo(29)
+        }
+        priceLabel.snp.makeConstraints { make in
+            make.leading.equalTo(topCollectionView)
+            make.top.equalTo(aboutNumberButton.snp.bottom).inset(-16)
+        }
+        numberChoosingButton.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(topCollectionView)
+            make.height.equalTo(NumberModel.buttonHeight)
+            make.bottom.equalToSuperview().inset(16)
         }
     }
 

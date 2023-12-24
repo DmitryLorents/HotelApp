@@ -10,6 +10,7 @@
 		0A5BF8252B330FB800206621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BF8242B330FB800206621 /* AppDelegate.swift */; };
 		0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BF8262B330FB800206621 /* SceneDelegate.swift */; };
 		0A5BF82E2B330FB900206621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BF82D2B330FB900206621 /* Assets.xcassets */; };
+		0A9C146B2B371D1100F8269F /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */; };
 		0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF12B331543008BF50B /* HotelViewController.swift */; };
 		0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF32B33156B008BF50B /* HotelView.swift */; };
 		0AA56DF62B33157B008BF50B /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF52B33157B008BF50B /* HotelModel.swift */; };
@@ -35,6 +36,7 @@
 		0A5BF8262B330FB800206621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0A5BF82D2B330FB900206621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A5BF8322B330FB900206621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		0AA56DF12B331543008BF50B /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 		0AA56DF32B33156B008BF50B /* HotelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelView.swift; sourceTree = "<group>"; };
 		0AA56DF52B33157B008BF50B /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
@@ -159,9 +161,9 @@
 		0AA56DF72B3315EC008BF50B /* BookingModule */ = {
 			isa = PBXGroup;
 			children = (
-				0AA56DF82B3315EC008BF50B /* Controller */,
 				0AA56DFA2B3315EC008BF50B /* Model */,
 				0AA56DFC2B3315EC008BF50B /* View */,
+				0AA56DF82B3315EC008BF50B /* Controller */,
 			);
 			path = BookingModule;
 			sourceTree = "<group>";
@@ -193,9 +195,9 @@
 		0AA56DFE2B3315EC008BF50B /* OrderModule */ = {
 			isa = PBXGroup;
 			children = (
-				0AA56DFF2B3315EC008BF50B /* Controller */,
 				0AA56E012B3315EC008BF50B /* Model */,
 				0AA56E032B3315EC008BF50B /* View */,
+				0AA56DFF2B3315EC008BF50B /* Controller */,
 			);
 			path = OrderModule;
 			sourceTree = "<group>";
@@ -264,6 +266,7 @@
 			children = (
 				0AC0A3552B34165000975C54 /* UIView + Extension.swift */,
 				0AC0A35C2B36C5D900975C54 /* UIButton + Extension.swift */,
+				0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				0AC0A3562B34165000975C54 /* UIView + Extension.swift in Sources */,
 				0AC0A35D2B36C5D900975C54 /* UIButton + Extension.swift in Sources */,
 				0AA56E0F2B3315EC008BF50B /* OrderViewController.swift in Sources */,
+				0A9C146B2B371D1100F8269F /* UILabel + Extension.swift in Sources */,
 				0AA56E0E2B3315EC008BF50B /* BookingView.swift in Sources */,
 				0AA56E0C2B3315EC008BF50B /* BookingViewController.swift in Sources */,
 				0A5BF8252B330FB800206621 /* AppDelegate.swift in Sources */,
