@@ -3,13 +3,114 @@
 import UIKit
 
 class OrderView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    //MARK: - Parameters
+    
+    private let contentView = UIView()
+    
+    private lazy var imageView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: OrderModel.imageName))
+        return view
+    }()
+    private lazy var orderStatusLabel: UILabel = {
+        let label = UILabel()
+        label.text = OrderModel.orderStatusText
+        label.font = OrderModel.standardFont22
+        return label
+    }()
+    private lazy var orderConfirmationLabel: UILabel = {
+        let label = UILabel()
+        label.text = OrderModel.orderConfirmationText
+        label.font = OrderModel.standardFont16
+        label.textColor = UIColor.gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var topView: UIView = makeWhiteView()
+    
+    private let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 20
+        view.alignment = .center
+        return view
+    }()
+    
+    private let hotelDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = HotelModel.hotelDescription
+        label.font = HotelModel.standardFont16
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    //bottomView
+    private lazy var bottomView: UIView = makeWhiteView()
+    
+    private var doneButton: UIButton = .makeBlueButton(title: OrderModel.buttonTitle)
+    
+    //MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        setupConstraints()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Methods
+    
+    func setupView(buttonAction: UITapGestureRecognizer) {
+        doneButton.addGestureRecognizer(buttonAction)
+    }
+    
+    private func setupViews() {
+        backgroundColor = .systemBackground
+        contentView.backgroundColor = OrderModel.backgroundColor
+        addSubview(contentView)
+        contentView.addSubviews(topView, bottomView)
+        topView.addSubview(stackView)
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(orderStatusLabel)
+        stackView.addArrangedSubview(orderConfirmationLabel)
+        bottomView.addSubview(doneButton)
+    }
+}
+//MARK: - Set constraints
+extension OrderView {
+    private func setupConstraints() {
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        //bottomView
+        bottomView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(OrderModel.bottomViewHeight)
+        }
+        
+        doneButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 12, left: 16, bottom: 28, right: 16))
+        }
+        
+        //topView
+        topView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+            make.bottom.equalTo(bottomView.snp.top).inset(-4)
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(23)
+            make.centerY.equalToSuperview()
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.height.width.equalTo(94)
+        }
+    }
 }
