@@ -12,6 +12,12 @@ class NumberViewController: UIViewController {
         super.viewDidLoad()
         setViews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = NumberModel.title
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         title = ""
@@ -22,7 +28,7 @@ class NumberViewController: UIViewController {
     private func setViews() {
         view = numberView
         numberView.transferDelegates(delegate: self, dataSource: self)
-        title = NumberModel.title
+        self.navigationController?.navigationBar.tintColor = .black
     }
     
     @objc func cellButtonAction() {

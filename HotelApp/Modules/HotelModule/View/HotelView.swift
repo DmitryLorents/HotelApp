@@ -24,27 +24,9 @@ final class HotelView: UIView {
         view.clipsToBounds = true
         return view
     }()
-    private let starLabel: UILabel = {
-        let label = UILabel()
-        label.text = HotelModel.starLabelText
-        label.backgroundColor = HotelModel.orangeLabelBackgroundColor
-        label.textColor = HotelModel.orangeLabelTextColor
-        label.font = HotelModel.standardFont16
-        label.layer.cornerRadius = 5
-        label.clipsToBounds = true
-        return label
-    }()
-    private let hotelNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = HotelModel.hotelName
-        label.font = HotelModel.standardFont22
-        return label
-    }()
-    private let hotelAdressButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(HotelModel.hotelAdress, for: .normal)
-        return button
-    }()
+    private let starLabel: UILabel = .makeStarLabel()
+    private let hotelNameLabel: UILabel = .makeHotelNameLabel()
+    private let hotelAdressButton: UIButton = .makehotelAdressButton()
     
     private let priceLabel: UILabel = .makePriceLabel(title: HotelModel.hotelPriceBeginning + HotelModel.priceString, subtitle: HotelModel.hotelPriceEnd)
     

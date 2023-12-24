@@ -23,4 +23,10 @@ extension UIButton {
             button.setTitleColor(.white, for: .normal)
             return button
         }
+    
+    static func makehotelAdressButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(HotelModel.hotelAdress, for: .normal)
+        return button
+    }
 }

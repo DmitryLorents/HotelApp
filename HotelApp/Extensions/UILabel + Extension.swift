@@ -26,4 +26,22 @@ extension UILabel {
             label.attributedText = NSAttributedString(fullAttText)
             return label
     }
+    
+    static func makeStarLabel() -> UILabel {
+        let label = UILabel()
+        label.text = HotelModel.starLabelText
+        label.backgroundColor = HotelModel.orangeLabelBackgroundColor
+        label.textColor = HotelModel.orangeLabelTextColor
+        label.font = HotelModel.standardFont16
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        return label
+    }
+    
+    static func makeHotelNameLabel() -> UILabel {
+        let label = UILabel()
+        label.text = HotelModel.hotelName
+        label.font = HotelModel.standardFont22
+        return label
+    }
 }

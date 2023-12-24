@@ -11,6 +11,10 @@
 		0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BF8262B330FB800206621 /* SceneDelegate.swift */; };
 		0A5BF82E2B330FB900206621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BF82D2B330FB900206621 /* Assets.xcassets */; };
 		0A9C146B2B371D1100F8269F /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */; };
+		0A9C146E2B38749B00F8269F /* HotelDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C146D2B38749B00F8269F /* HotelDescriptionCell.swift */; };
+		0A9C14702B3874B500F8269F /* BookingDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C146F2B3874B500F8269F /* BookingDescriptionCell.swift */; };
+		0A9C14722B3874DD00F8269F /* BuyerInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C14712B3874DD00F8269F /* BuyerInformationCell.swift */; };
+		0A9C14742B3874F600F8269F /* TouristInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9C14732B3874F600F8269F /* TouristInformationCell.swift */; };
 		0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF12B331543008BF50B /* HotelViewController.swift */; };
 		0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF32B33156B008BF50B /* HotelView.swift */; };
 		0AA56DF62B33157B008BF50B /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA56DF52B33157B008BF50B /* HotelModel.swift */; };
@@ -37,6 +41,10 @@
 		0A5BF82D2B330FB900206621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A5BF8322B330FB900206621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		0A9C146D2B38749B00F8269F /* HotelDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDescriptionCell.swift; sourceTree = "<group>"; };
+		0A9C146F2B3874B500F8269F /* BookingDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDescriptionCell.swift; sourceTree = "<group>"; };
+		0A9C14712B3874DD00F8269F /* BuyerInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerInformationCell.swift; sourceTree = "<group>"; };
+		0A9C14732B3874F600F8269F /* TouristInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInformationCell.swift; sourceTree = "<group>"; };
 		0AA56DF12B331543008BF50B /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 		0AA56DF32B33156B008BF50B /* HotelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelView.swift; sourceTree = "<group>"; };
 		0AA56DF52B33157B008BF50B /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
@@ -110,6 +118,17 @@
 				0A5BF8322B330FB900206621 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0A9C146C2B38745400F8269F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A9C146D2B38749B00F8269F /* HotelDescriptionCell.swift */,
+				0A9C146F2B3874B500F8269F /* BookingDescriptionCell.swift */,
+				0A9C14712B3874DD00F8269F /* BuyerInformationCell.swift */,
+				0A9C14732B3874F600F8269F /* TouristInformationCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0AA56DEC2B3314D0008BF50B /* Modules */ = {
@@ -187,6 +206,7 @@
 		0AA56DFC2B3315EC008BF50B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A9C146C2B38745400F8269F /* Cells */,
 				0AA56DFD2B3315EC008BF50B /* BookingView.swift */,
 			);
 			path = View;
@@ -364,13 +384,17 @@
 				0A9C146B2B371D1100F8269F /* UILabel + Extension.swift in Sources */,
 				0AA56E0E2B3315EC008BF50B /* BookingView.swift in Sources */,
 				0AA56E0C2B3315EC008BF50B /* BookingViewController.swift in Sources */,
+				0A9C14742B3874F600F8269F /* TouristInformationCell.swift in Sources */,
+				0A9C14702B3874B500F8269F /* BookingDescriptionCell.swift in Sources */,
 				0A5BF8252B330FB800206621 /* AppDelegate.swift in Sources */,
+				0A9C14722B3874DD00F8269F /* BuyerInformationCell.swift in Sources */,
 				0AA56E122B3315EC008BF50B /* NumberViewController.swift in Sources */,
 				0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */,
 				0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */,
 				0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */,
 				0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */,
 				0AC0A35B2B36BD4E00975C54 /* NumberTableViewCell.swift in Sources */,
+				0A9C146E2B38749B00F8269F /* HotelDescriptionCell.swift in Sources */,
 				0AA56E162B3320FE008BF50B /* HotelParsingModel.swift in Sources */,
 				0AA56E0D2B3315EC008BF50B /* BookingModel.swift in Sources */,
 			);

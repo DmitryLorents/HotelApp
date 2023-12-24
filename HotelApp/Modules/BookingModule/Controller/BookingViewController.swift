@@ -18,6 +18,12 @@ class BookingViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //set title
+        title = BookingModel.title
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         bookingView.layoutSubviews()
@@ -32,12 +38,28 @@ class BookingViewController: UIViewController {
     
     private func setupViews() {
         view = bookingView
-        title = BookingModel.title
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
-        bookingView.setupView(model: nil, buttonAction: tapGestureRecognizer)
+        bookingView.setupView(model: nil, buttonAction: tapGestureRecognizer, delegate: self, dataSource: self)
     }
     
     @objc private func navigationAction() {
         navigationController?.pushViewController(OrderViewController(), animated: true)
     }
+}
+//MARK: - UITableViewDelegate
+extension BookingViewController: UITableViewDelegate {
+    
+}
+//MARK: - UITableViewDataSource
+extension BookingViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
+        return cell
+    }
+    
+    
 }
