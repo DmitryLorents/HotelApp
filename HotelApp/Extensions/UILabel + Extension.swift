@@ -44,4 +44,21 @@ extension UILabel {
         label.font = HotelModel.standardFont22
         return label
     }
+    
+    static func makeCellTitleLabel() -> UILabel {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.textColor = .gray
+        label.font = HotelModel.standardFont16
+        return label
+    }
+    
+    static func makeCellsubtitleLabel() -> UILabel {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = HotelModel.standardFont16
+        return label
+    }
 }

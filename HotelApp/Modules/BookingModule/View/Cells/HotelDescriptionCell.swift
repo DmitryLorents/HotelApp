@@ -11,7 +11,7 @@ class HotelDescriptionCell: UITableViewCell {
     //MARK: - Parameters
     static let reuseID = String(describing: HotelDescriptionCell.self)
     
-    private lazy var firstView: UIView = makeWhiteView()
+    private lazy var backgroundCellView: UIView = makeWhiteView()
     private lazy var verticalStack: UIStackView = {
        let stack = UIStackView()
         stack.axis = .vertical
@@ -53,18 +53,16 @@ class HotelDescriptionCell: UITableViewCell {
     
     private func setupViews() {
         backgroundColor = .clear
-        contentView.addSubview(firstView)
-        firstView.addSubview(verticalStack)
-        verticalStack.addArrangedSubview(starLabel)
-        verticalStack.addArrangedSubview(hotelNameLabel)
-        verticalStack.addArrangedSubview(hotelAdressButton)
+        contentView.addSubview(backgroundCellView)
+        backgroundCellView.addSubview(verticalStack)
+        verticalStack.addArrangedSubviews(starLabel,hotelNameLabel, hotelAdressButton)
     }
 }
 //MARK: - Set constraints
 extension HotelDescriptionCell {
     private func setupConstraints() {
         
-        firstView.snp.makeConstraints { make in
+        backgroundCellView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0))
         }
         

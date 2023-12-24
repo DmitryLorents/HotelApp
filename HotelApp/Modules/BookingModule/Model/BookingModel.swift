@@ -18,6 +18,15 @@ enum BookingModel {
     static let hotelPriceEnd = " за тур с перелетом"
     static let aboutHotelString = "Об отеле"
     static let hotelDescription = "Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
+    static let bookingDescriptionArray: [(title: String, subtitle: String)] = [
+    ("Вылет из", "Санкт-Петербург"),
+    ("Страна, город", "Египет, Хургада"),
+    ("Даты", "19.09.2023 – 27.09.2023"),
+    ("Кол-во ночей", "7 ночей"),
+    ("Отель", "Steigenberger Makadi"),
+    ("Номер", "Стандартный с видом на бассейн или сад"),
+    ("Питание", "Все включено")
+    ]
     
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12
