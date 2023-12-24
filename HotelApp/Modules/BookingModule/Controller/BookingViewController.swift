@@ -22,6 +22,11 @@ class BookingViewController: UIViewController {
         super.viewDidAppear(animated)
         bookingView.layoutSubviews()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
 
 //MARK: - Methods
     

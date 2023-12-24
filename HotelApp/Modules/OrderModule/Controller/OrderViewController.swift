@@ -17,6 +17,10 @@ class OrderViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        orderView.setRandomOrderNumber()
+    }
 
 //MARK: - Methods
     

@@ -16,20 +16,27 @@ class HotelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = HotelModel.title
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         hotelView.layoutSubviews()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
 
 //MARK: - Methods
     
     private func setupViews() {
         view = hotelView
-        title = HotelModel.title
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
         hotelView.setupView(model: nil, buttonAction: tapGestureRecognizer)
     }

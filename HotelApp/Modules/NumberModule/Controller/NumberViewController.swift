@@ -5,23 +5,26 @@ import UIKit
 class NumberViewController: UIViewController {
     //MARK: - Parameters
     let numberView = NumberView()
-
+    
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-}
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
     
     //MARK: - Methods
-    
-    
     
     private func setViews() {
         view = numberView
         numberView.transferDelegates(delegate: self, dataSource: self)
+        title = NumberModel.title
     }
-
+    
     @objc func cellButtonAction() {
         navigationController?.pushViewController(BookingViewController(), animated: true)
     }

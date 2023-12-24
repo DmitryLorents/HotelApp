@@ -20,7 +20,7 @@ class OrderView: UIView {
     }()
     private lazy var orderConfirmationLabel: UILabel = {
         let label = UILabel()
-        label.text = OrderModel.orderConfirmationText
+        label.text = OrderModel.getRandomOrderText(orderNumber: Int.random(in: 100_000...200_000))
         label.font = OrderModel.standardFont16
         label.textColor = UIColor.gray
         label.numberOfLines = 0
@@ -35,14 +35,6 @@ class OrderView: UIView {
         view.spacing = 20
         view.alignment = .center
         return view
-    }()
-    
-    private let hotelDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = HotelModel.hotelDescription
-        label.font = HotelModel.standardFont16
-        label.numberOfLines = 0
-        return label
     }()
     
     //bottomView
@@ -67,6 +59,9 @@ class OrderView: UIView {
     func setupView(buttonAction: UITapGestureRecognizer) {
         doneButton.addGestureRecognizer(buttonAction)
     }
+    func setRandomOrderNumber() {
+        orderConfirmationLabel.text = OrderModel.getRandomOrderText(orderNumber: Int.random(in: 100_000...200_000))
+    }
     
     private func setupViews() {
         backgroundColor = .systemBackground
@@ -79,6 +74,7 @@ class OrderView: UIView {
         stackView.addArrangedSubview(orderConfirmationLabel)
         bottomView.addSubview(doneButton)
     }
+    
 }
 //MARK: - Set constraints
 extension OrderView {

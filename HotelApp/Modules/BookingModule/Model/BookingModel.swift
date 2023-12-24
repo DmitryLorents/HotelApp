@@ -10,7 +10,7 @@ import UIKit
 enum BookingModel {
     static let title = "Бронирование"
     static let starLabelText = "  ★ 5 Превосходно  "
-    static let buttonTitle = "К выбору номера"
+    static let buttonTitle = "Оплатить 198 036 ₽"
     static let hotelName = "Steigenberger Makadi"
     static let hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет"
     static let hotelPriceBeginning = "от "

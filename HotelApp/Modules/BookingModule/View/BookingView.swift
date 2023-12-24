@@ -90,7 +90,7 @@ class BookingView: UIView {
         return view
     }()
     
-    private var numberChoosingButton: UIButton = .makeBlueButton(title: HotelModel.buttonTitle)
+    private var numberChoosingButton: UIButton = .makeBlueButton(title: BookingModel.buttonTitle)
     
     //MARK: - Init
     

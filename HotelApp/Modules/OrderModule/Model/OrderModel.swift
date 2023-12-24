@@ -11,7 +11,9 @@ enum OrderModel {
     static let title = "Заказ оплачен"
     static let orderStatusText = "Ваш заказ принят в работу"
     static let buttonTitle = "Супер"
-    static let orderConfirmationText = "Подтверждение заказа №\(Int.random(in: 100000...200000)) может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление."
+    static func getRandomOrderText(orderNumber: Int) -> String {
+        "Подтверждение заказа №\(orderNumber) может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление."
+    }
     
     static let imageName = "orderImage"
     
