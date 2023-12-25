@@ -12,21 +12,8 @@ class OrderView: UIView {
         let view = UIImageView(image: UIImage(named: OrderModel.imageName))
         return view
     }()
-    private lazy var orderStatusLabel: UILabel = {
-        let label = UILabel()
-        label.text = OrderModel.orderStatusText
-        label.font = OrderModel.standardFont22
-        return label
-    }()
-    private lazy var orderConfirmationLabel: UILabel = {
-        let label = UILabel()
-        label.text = OrderModel.getRandomOrderText(orderNumber: Int.random(in: 100_000...200_000))
-        label.font = OrderModel.standardFont16
-        label.textColor = UIColor.gray
-        label.numberOfLines = 0
-        return label
-    }()
-    
+    private lazy var orderStatusLabel: UILabel = .makeHotelNameLabel(title: OrderModel.orderStatusText)
+    private lazy var orderConfirmationLabel: UILabel = .makeGrayTextLabel(text: OrderModel.getRandomOrderText(orderNumber: Int.random(in: 100_000...200_000)))    
     private lazy var topView: UIView = makeWhiteView()
     
     private let stackView: UIStackView = {

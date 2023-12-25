@@ -38,9 +38,9 @@ extension UILabel {
         return label
     }
     
-    static func makeHotelNameLabel() -> UILabel {
+    static func makeHotelNameLabel(title: String) -> UILabel {
         let label = UILabel()
-        label.text = HotelModel.hotelName
+        label.text = title
         label.font = HotelModel.standardFont22
         return label
     }
@@ -59,6 +59,22 @@ extension UILabel {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = HotelModel.standardFont16
+        return label
+    }
+    
+    static func makePlaceholderLabel(title: String) -> UILabel {
+        let label = UILabel()
+        label.textColor = .gray
+        label.text = title
+        label.font = BookingModel.standardFont12
+        return label
+    }
+    static func makeGrayTextLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = OrderModel.standardFont16
+        label.textColor = UIColor.gray
+        label.numberOfLines = 0
         return label
     }
 }

@@ -20,7 +20,7 @@ class HotelDescriptionCell: UITableViewCell {
         return stack
     }()
     private let starLabel: UILabel = .makeStarLabel()
-    private let hotelNameLabel: UILabel = .makeHotelNameLabel()
+    private let hotelNameLabel: UILabel = .makeHotelNameLabel(title: HotelModel.hotelName)
     private let hotelAdressButton: UIButton = .makehotelAdressButton()
     
     //MARK: - Init

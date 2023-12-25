@@ -62,6 +62,8 @@ extension BookingViewController: UITableViewDataSource {
             return cell
         case 1: guard let cell = tableView.dequeueReusableCell(withIdentifier: BookingDescriptionCell.reuseID, for: indexPath) as? BookingDescriptionCell else {return .init()}
             return cell
+        case 2: guard let cell = tableView.dequeueReusableCell(withIdentifier: BuyerInformationCell.reuseID, for: indexPath) as? BuyerInformationCell else {return .init()}
+            return cell
         default : guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
             return cell
         //default: return .init()

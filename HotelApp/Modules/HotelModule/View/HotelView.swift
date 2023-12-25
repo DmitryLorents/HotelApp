@@ -25,7 +25,7 @@ final class HotelView: UIView {
         return view
     }()
     private let starLabel: UILabel = .makeStarLabel()
-    private let hotelNameLabel: UILabel = .makeHotelNameLabel()
+    private let hotelNameLabel: UILabel = .makeHotelNameLabel(title: HotelModel.hotelName)
     private let hotelAdressButton: UIButton = .makehotelAdressButton()
     
     private let priceLabel: UILabel = .makePriceLabel(title: HotelModel.hotelPriceBeginning + HotelModel.priceString, subtitle: HotelModel.hotelPriceEnd)
