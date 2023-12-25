@@ -12,7 +12,7 @@ class OrderView: UIView {
         let view = UIImageView(image: UIImage(named: OrderModel.imageName))
         return view
     }()
-    private lazy var orderStatusLabel: UILabel = .makeHotelNameLabel(title: OrderModel.orderStatusText)
+    private lazy var orderStatusLabel: UILabel = .makeBigCellLabel(title: OrderModel.orderStatusText)
     private lazy var orderConfirmationLabel: UILabel = .makeGrayTextLabel(text: OrderModel.getRandomOrderText(orderNumber: Int.random(in: 100_000...200_000)))    
     private lazy var topView: UIView = makeWhiteView()
     

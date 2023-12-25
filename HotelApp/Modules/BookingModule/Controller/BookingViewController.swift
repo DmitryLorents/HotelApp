@@ -64,12 +64,12 @@ extension BookingViewController: UITableViewDataSource {
             return cell
         case 2: guard let cell = tableView.dequeueReusableCell(withIdentifier: BuyerInformationCell.reuseID, for: indexPath) as? BuyerInformationCell else {return .init()}
             return cell
+        case 3: guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristInformationCell.reuseID, for: indexPath) as? TouristInformationCell else {return .init()}
+            return cell
         default : guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
             return cell
         //default: return .init()
         }
-    
-        return .init()
     }
     
     

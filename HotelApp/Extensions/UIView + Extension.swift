@@ -36,4 +36,19 @@ extension UIView {
             make.bottom.equalToSuperview().inset(10)
         }
     }
+    func makeGrayViewWithTextfieldAnd(placeholder: String) -> UIView {
+        let view = UIView()
+        view.backgroundColor = BookingModel.backgroundColor
+        view.layer.cornerRadius = BookingModel.grayViewCornenRadius
+        //add TF inside
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.font = BookingModel.standardFont16
+        view.addSubview(textField)
+        //set TF's constraints
+        textField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
+        }
+        return view
+    }
 }

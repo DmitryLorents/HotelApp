@@ -14,13 +14,14 @@ enum BookingModel {
     static let hotelName = "Steigenberger Makadi"
     static let bayerInformationString = "Информация о покупателе"
     static let hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет"
-    static let hotelPriceBeginning = "от "
-    static let priceString = "134 673 Р"
-    static let hotelPriceEnd = " за тур с перелетом"
-    static let aboutHotelString = "Об отеле"
     static let phoneNumberString = "Номер телефона"
     static let emailString = "Почта"
     static let warningText = "Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту"
+    static let dateOFBirthPlaceholder = "Дата рождения"
+    static let citizenshipPlaceholder = "Гражданство"
+    static let passportNumberPlaceholder = "Номер загранпаспорта"
+    static let passportExpirationDatePlaceholder = "Срок действия загранпаспорта"
+    static let touristNumbersArray = ["Первый турист", "Второй турист", "Третий турист", "Четвертый турист"]
     static let bookingDescriptionArray: [(title: String, subtitle: String)] = [
     ("Вылет из", "Санкт-Петербург"),
     ("Страна, город", "Египет, Хургада"),

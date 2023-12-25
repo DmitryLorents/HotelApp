@@ -38,7 +38,7 @@ extension UILabel {
         return label
     }
     
-    static func makeHotelNameLabel(title: String) -> UILabel {
+    static func makeBigCellLabel(title: String) -> UILabel {
         let label = UILabel()
         label.text = title
         label.font = HotelModel.standardFont22

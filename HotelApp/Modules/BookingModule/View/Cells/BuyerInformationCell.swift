@@ -20,7 +20,7 @@ class BuyerInformationCell: UITableViewCell {
         stack.distribution = .equalCentering
         return stack
     }()
-   private let bayerInformationLabel: UILabel = .makeHotelNameLabel(title: BookingModel.bayerInformationString)
+   private let bayerInformationLabel: UILabel = .makeBigCellLabel(title: BookingModel.bayerInformationString)
    private lazy var phoneNumberGrayView = makeGrayView()
     private lazy var phoneNumberPlaceholder: UILabel = .makePlaceholderLabel(title: BookingModel.phoneNumberString)
     private lazy var phoneNumberTF: UITextField = .makeCustomTF(placeholder: "placeholder")
