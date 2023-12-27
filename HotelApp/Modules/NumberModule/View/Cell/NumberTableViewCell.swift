@@ -18,13 +18,7 @@ class NumberTableViewCell: UITableViewCell {
         return view
         
     }()
-    private lazy var topCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.backgroundColor = .gray
-        view.layer.cornerRadius = HotelModel.imageCornerRadius
-        view.clipsToBounds = true
-        return view
-    }()
+    private lazy var topCollectionView = Carousel(images: HotelModel.imageArray)
     private let descriptionLabel: UILabel = {
        let label = UILabel()
         label.text = NumberModel.numberDescriptionString
@@ -68,18 +62,6 @@ class NumberTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setViews()
-        setConstraints()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     //MARK: - Methods

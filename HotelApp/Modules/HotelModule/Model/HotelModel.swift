@@ -8,6 +8,7 @@
 import UIKit
 
 enum HotelModel {
+    static let cellID = "cell"
     static let title = "Отель"
     static let starLabelText = "  ★ 5 Превосходно  "
     static let buttonTitle = "К выбору номера"
@@ -33,4 +34,6 @@ enum HotelModel {
     static let standardFont16 = UIFont.systemFont(ofSize: 16, weight: .semibold)
     static let standardFont22 = UIFont.systemFont(ofSize: 22, weight: .semibold)
     static let standardFont30 = UIFont.systemFont(ofSize: 30)
+    
+    static let imageArray = [UIImage(named: "image20")!, UIImage(named: "image21")!]
 }

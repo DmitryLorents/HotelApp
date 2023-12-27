@@ -17,13 +17,7 @@ final class HotelView: UIView {
     
     private lazy var firstView: UIView = makeWhiteView()
     
-    private lazy var topCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.backgroundColor = .gray
-        view.layer.cornerRadius = HotelModel.imageCornerRadius
-        view.clipsToBounds = true
-        return view
-    }()
+    private lazy var topCollectionView = Carousel(images: HotelModel.imageArray)
     private let starLabel: UILabel = .makeStarLabel()
     private let hotelNameLabel: UILabel = .makeBigCellLabel(title: HotelModel.hotelName)
     private let hotelAdressButton: UIButton = .makehotelAdressButton()
