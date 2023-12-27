@@ -16,13 +16,15 @@ class BookingView: UIView {
         table.separatorStyle = .none
         table.backgroundColor = BookingModel.backgroundColor
         table.allowsSelection = false
+        table.showsVerticalScrollIndicator = false
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 120
         table.register(HotelDescriptionCell.self, forCellReuseIdentifier: HotelDescriptionCell.reuseID)
         table.register(BookingDescriptionCell.self, forCellReuseIdentifier: BookingDescriptionCell.reuseID)
         table.register(BuyerInformationCell.self, forCellReuseIdentifier: BuyerInformationCell.reuseID)
         table.register(TouristInformationCell.self, forCellReuseIdentifier: TouristInformationCell.reuseID)
-        //table.register(HotelDescriptionCell.self, forCellReuseIdentifier: HotelDescriptionCell.reuseID)
+        table.register(AddTouristCell.self, forCellReuseIdentifier: AddTouristCell.reuseID)
+        table.register(PaymentInfoCell.self, forCellReuseIdentifier: PaymentInfoCell.reuseID)
         return table
     }()
     

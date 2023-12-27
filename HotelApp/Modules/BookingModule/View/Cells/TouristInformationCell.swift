@@ -21,6 +21,15 @@ class TouristInformationCell: UITableViewCell {
         return stack
     }()
     private let touristNumberLabel: UILabel = .makeBigCellLabel(title: BookingModel.touristNumbersArray[0])
+    private var squareButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = BookingModel.squareButtonBackgroundColor?.withAlphaComponent(0.1)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = BookingModel.smallButtonCornerRadius
+        button.setImage(UIImage(systemName: BookingModel.chevronDownImageName), for: .normal)
+        button.tintColor = BookingModel.buttonBackground
+        return button
+    }()
     private lazy var phoneNumberGrayView = makeGrayView()
     private lazy var phoneNumberPlaceholder: UILabel = .makePlaceholderLabel(title: BookingModel.phoneNumberString)
     private lazy var phoneNumberTF: UITextField = .makeCustomTF(placeholder: "placeholder")
@@ -47,7 +56,7 @@ class TouristInformationCell: UITableViewCell {
     private func setupViews() {
         backgroundColor = .clear
         contentView.addSubview(backgroundCellView)
-        backgroundCellView.addSubviews(touristNumberLabel, verticalStack)
+        backgroundCellView.addSubviews(touristNumberLabel, verticalStack, squareButton)
         verticalStack.addArrangedSubviews(phoneNumberGrayView, emailGrayView, dateOfBirthView, citizenshipView, passportNumberView, passportExpirationDateView)
         phoneNumberGrayView.addViewInside(label: phoneNumberPlaceholder, textField: phoneNumberTF)
         emailGrayView.addViewInside(label: emailPlaceholder, textField: emailTF)
@@ -68,6 +77,12 @@ extension TouristInformationCell {
         verticalStack.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview().inset(16)
             make.top.equalTo(touristNumberLabel.snp.bottom).inset(-16)
+        }
+        
+        squareButton.snp.makeConstraints { make in
+            make.trailing.top.equalToSuperview().inset(13)
+            make.width.equalTo(squareButton.snp.height)
+            make.centerY.equalTo(touristNumberLabel)
         }
     }
     

@@ -53,7 +53,7 @@ extension BookingViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension BookingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,9 +66,12 @@ extension BookingViewController: UITableViewDataSource {
             return cell
         case 3: guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristInformationCell.reuseID, for: indexPath) as? TouristInformationCell else {return .init()}
             return cell
+        case 4: guard let cell = tableView.dequeueReusableCell(withIdentifier: AddTouristCell.reuseID, for: indexPath) as? AddTouristCell else {return .init()}
+            return cell
+        case 5: guard let cell = tableView.dequeueReusableCell(withIdentifier: PaymentInfoCell.reuseID, for: indexPath) as? PaymentInfoCell else {return .init()}
+            return cell
         default : guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
             return cell
-        //default: return .init()
         }
     }
     

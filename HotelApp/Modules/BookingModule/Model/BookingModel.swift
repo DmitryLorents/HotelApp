@@ -21,6 +21,7 @@ enum BookingModel {
     static let citizenshipPlaceholder = "Гражданство"
     static let passportNumberPlaceholder = "Номер загранпаспорта"
     static let passportExpirationDatePlaceholder = "Срок действия загранпаспорта"
+    static let addTouristString = "Добавить туриста"
     static let touristNumbersArray = ["Первый турист", "Второй турист", "Третий турист", "Четвертый турист"]
     static let bookingDescriptionArray: [(title: String, subtitle: String)] = [
     ("Вылет из", "Санкт-Петербург"),
@@ -31,8 +32,15 @@ enum BookingModel {
     ("Номер", "Стандартный с видом на бассейн или сад"),
     ("Питание", "Все включено")
     ]
+    static let paymentDescriptionArray: [(title: String, subtitle: String)] = [
+    ("Тур", "186 600 ₽"),
+    ("Топливный сбор", "9 300 ₽"),
+    ("Сервисный сбор", "2 136 ₽"),
+    ("К оплате", "198 036 ₽")
+    ]
     
     static let imageCornerRadius: CGFloat = 16
+    static let smallButtonCornerRadius: CGFloat = 6
     static let viewCornerRadius: CGFloat = 12
     static let grayViewCornenRadius: CGFloat = 10
     static let buttonCornerRadius: CGFloat = 15
@@ -43,6 +51,11 @@ enum BookingModel {
     static let orangeLabelBackgroundColor = UIColor(named: "OrangeLabelBackground")
     static let orangeLabelTextColor = UIColor(named: "OrangeLabelColor")
     static let tableViewBackgroundColor = UIColor(named: "TableViewBackground")
+    static let squareButtonBackgroundColor = UIColor(named: "AboutNumberBackground")
+    
+    static let plusImageName = "plus.square.fill"
+    static let chevronDownImageName = "chevron.down"
+    static let chevronUpImageName = "chevron.up"
     
     static let standardFont12 = UIFont.systemFont(ofSize: 12, weight: .semibold)
     static let standardFont16 = UIFont.systemFont(ofSize: 16, weight: .semibold)
