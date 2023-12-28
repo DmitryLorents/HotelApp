@@ -20,6 +20,10 @@ enum HotelModel {
     static let aboutHotelString = "Об отеле"
     static let hotelDescription = "Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
     static let optionsStringArray = ["3-я линия", "Платный Wi-Fi в фойе", "30 км до аэропорта", "1 км до пляжа"]
+    static let tableTitlesArray: [(title: String, subtitle: String, imageName: String)] =
+    [("Удобства", "Самое необходимое", "1"),
+     ("Что включено", "Самое необходимое", "2"),
+     ("Что не включено", "Самое необходимое", "3")]
     
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12

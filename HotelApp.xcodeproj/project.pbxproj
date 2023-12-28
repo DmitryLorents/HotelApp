@@ -41,6 +41,7 @@
 		0AD145B92B3C9AD100641D10 /* ChipsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145B82B3C9AD100641D10 /* ChipsViewCell.swift */; };
 		0AD145BB2B3CA1FB00641D10 /* LeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */; };
 		0AD145BD2B3D5BAD00641D10 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */; };
+		0AD145C12B3DA51A00641D10 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		0AD145B82B3C9AD100641D10 /* ChipsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsViewCell.swift; sourceTree = "<group>"; };
 		0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedLayout.swift; sourceTree = "<group>"; };
 		0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
+		0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 		0AD145B72B3C9AAD00641D10 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				0AA56E122B3315EC008BF50B /* NumberViewController.swift in Sources */,
 				0AD145BD2B3D5BAD00641D10 /* UICollectionView + Extension.swift in Sources */,
 				0AD145B92B3C9AD100641D10 /* ChipsViewCell.swift in Sources */,
+				0AD145C12B3DA51A00641D10 /* ButtonsTableViewCell.swift in Sources */,
 				0A9C14762B38A59200F8269F /* UIStackView + Extension.swift in Sources */,
 				0A9C14782B3977D400F8269F /* UITextField + Extension.swift in Sources */,
 				0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */,

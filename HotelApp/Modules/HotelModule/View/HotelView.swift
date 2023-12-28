@@ -42,9 +42,13 @@ final class HotelView: UIView {
         return label
     }()
     private lazy var buttonsTableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.backgroundColor = .brown//HotelModel.tableViewBackgroundColor
-        table.rowHeight = 184 / 3
+        let table = UITableView(frame: .zero, style: .insetGrouped)
+        table.backgroundColor = .clear
+        table.rowHeight = UITableView.automaticDimension
+        
+        table.delegate = self
+        table.dataSource = self
+        table.register(ButtonsTableViewCell.self, forCellReuseIdentifier: ButtonsTableViewCell.reuseID)
         return table
     }()
     
@@ -64,21 +68,14 @@ final class HotelView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     //MARK: - Set scrollView content size
     override func layoutSubviews() {
         super.layoutSubviews()
+        updateCollectionViewConstraints()
+        updateTableViewConstraints()
         scrollView.contentSize = contentView.bounds.size
-        
-        
-        let actualHeight = optionsCollectionView.collectionViewLayout.collectionViewContentSize.height + 1
-        //update collectionView's height
-        optionsCollectionView.snp.remakeConstraints { make in
-            optionsCollectionView.snp.makeConstraints { make in
-                make.leading.trailing.equalTo(topCollectionView)
-                make.height.equalTo(actualHeight)
-                make.top.equalTo(aboutHotelLabel.snp.bottom).inset(-16)
-            }
-        }
+        scrollView.contentSize.height += 170
     }
     
     //MARK: - Methods
@@ -91,6 +88,29 @@ final class HotelView: UIView {
     func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
         
         numberChoosingButton.addGestureRecognizer(buttonAction)
+    }
+    
+    private func updateCollectionViewConstraints() {
+        let actualHeight = optionsCollectionView.collectionViewLayout.collectionViewContentSize.height + 1
+        //update collectionView's height
+        optionsCollectionView.snp.remakeConstraints { make in
+            optionsCollectionView.snp.makeConstraints { make in
+                make.leading.trailing.equalTo(topCollectionView)
+                make.height.equalTo(actualHeight)
+                make.top.equalTo(aboutHotelLabel.snp.bottom).inset(-16)
+            }
+        }
+    }
+    
+    private func updateTableViewConstraints() {
+        let actualHeight = buttonsTableView.contentSize.height
+        buttonsTableView.snp.removeConstraints()
+        buttonsTableView.snp.remakeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(hotelDescriptionLabel.snp.bottom).inset(20)
+            make.height.equalTo(actualHeight)
+            make.bottom.equalToSuperview().inset(-12)
+        }
     }
     
     private func setupViews() {
@@ -166,12 +186,7 @@ extension HotelView {
             make.leading.trailing.equalTo(topCollectionView)
             make.top.equalTo(optionsCollectionView.snp.bottom).inset(-12)
         }
-        buttonsTableView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(topCollectionView)
-            make.top.equalTo(hotelDescriptionLabel.snp.bottom).inset(-16)
-            make.height.equalTo(184)
-            make.bottom.equalToSuperview().inset(16)
-        }
+        updateTableViewConstraints()
         
         
         
@@ -186,4 +201,23 @@ extension HotelView {
         }
         
     }
+}
+
+extension HotelView: UITableViewDelegate {
+    
+}
+
+extension HotelView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        HotelModel.tableTitlesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonsTableViewCell.reuseID, for: indexPath) as? ButtonsTableViewCell else {return .init()}
+        let model = HotelModel.tableTitlesArray[indexPath.row]
+        cell.setCell(with: model)
+        return cell
+    }
+    
+    
 }

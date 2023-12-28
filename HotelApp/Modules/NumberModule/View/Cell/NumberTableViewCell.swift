@@ -113,6 +113,7 @@ class NumberTableViewCell: UITableViewCell {
             make.top.equalTo(topCollectionView.snp.bottom).inset(-8)
         }
         updateCollectionViewConstraints()
+        
         aboutNumberButton.snp.makeConstraints { make in
             make.leading.equalTo(topCollectionView)
             make.top.equalTo(optionsCollectionView.snp.bottom).inset(-8)
@@ -130,13 +131,13 @@ class NumberTableViewCell: UITableViewCell {
     }
 
 }
-
+//MARK: - UpdateLayoutProtocol
 extension NumberTableViewCell: UpdateLayoutProtocol {
     func updateLayout() {
         self.layoutSubviews()
     }
 }
-
+//MARK: - UICollectionViewDataSource
 extension NumberTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         NumberModel.optionsStringArray.count
@@ -147,6 +148,4 @@ extension NumberTableViewCell: UICollectionViewDataSource {
         cell.setTitle(title: NumberModel.optionsStringArray[indexPath.item])
         return cell
     }
-    
-    
 }
