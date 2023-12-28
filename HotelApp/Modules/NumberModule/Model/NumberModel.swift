@@ -7,12 +7,10 @@ enum NumberModel {
     //static let starLabelText = "  ★ 5 Превосходно  "
     static let buttonTitle = "Выбрать номер"
     static let subButtonTitle = "  Подробнее о номере \u{232A}  "
-//    static let hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет"
-//    static let hotelPriceBeginning = "от "
     static let numberPriceBeginning = "186 600 Р"
     static let numberPriceEnd = " за 7 ночей с перелетом"
     static let numberDescriptionString = "Стандартный с видом на бассейн или сад"
-//    static let hotelDescription = "Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
+    static let optionsStringArray = ["Все включено", "Кондиционер"]
     
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12

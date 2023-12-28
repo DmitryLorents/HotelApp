@@ -1,8 +1,14 @@
 
 import UIKit
 
+protocol UpdateLayoutProtocol: AnyObject {
+    func updateLayout()
+}
+
 class NumberView: UIView {
     //MARK: - Parameters
+    weak var delegate: UpdateLayoutProtocol?
+    
     lazy var tableView: UITableView = {
        let table = UITableView()
         table.separatorStyle = .none
@@ -26,6 +32,11 @@ class NumberView: UIView {
     }
     
     //MARK: - Methods
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        delegate?.updateLayout()
+    }
     
     func transferDelegates(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         tableView.delegate = delegate

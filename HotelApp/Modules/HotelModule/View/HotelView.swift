@@ -33,11 +33,7 @@ final class HotelView: UIView {
         label.font = HotelModel.standardFont22
         return label
     }()
-    private lazy var optionsCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.backgroundColor = .gray
-        return view
-    }()
+    private lazy var optionsCollectionView: UICollectionView = .createChipsCollectionView()
     private let hotelDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = HotelModel.hotelDescription
@@ -72,11 +68,25 @@ final class HotelView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.contentSize = contentView.bounds.size
-        //print("self.contentScaleFactor", self.contentScaleFactor )
         
+        
+        let actualHeight = optionsCollectionView.collectionViewLayout.collectionViewContentSize.height + 1
+        //update collectionView's height
+        optionsCollectionView.snp.remakeConstraints { make in
+            optionsCollectionView.snp.makeConstraints { make in
+                make.leading.trailing.equalTo(topCollectionView)
+                make.height.equalTo(actualHeight)
+                make.top.equalTo(aboutHotelLabel.snp.bottom).inset(-16)
+            }
+        }
     }
     
     //MARK: - Methods
+    
+    public func transferDelegates(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        optionsCollectionView.dataSource = dataSource
+        optionsCollectionView.delegate = delegate
+    }
     
     func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
         
@@ -141,7 +151,6 @@ extension HotelView {
             make.top.equalTo(firstView.snp.bottom).inset(-8)
             make.leading.trailing.equalTo(firstView)
             make.bottom.equalTo(contentView).inset(8)
-            //make.height.equalTo(500)
         }
         
         aboutHotelLabel.snp.makeConstraints { make in
@@ -149,7 +158,8 @@ extension HotelView {
             make.top.equalToSuperview().inset(16)
         }
         optionsCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.height.equalTo(topCollectionView)
+            make.leading.trailing.equalTo(topCollectionView)
+            make.height.greaterThanOrEqualTo(90)
             make.top.equalTo(aboutHotelLabel.snp.bottom).inset(-16)
         }
         hotelDescriptionLabel.snp.makeConstraints { make in

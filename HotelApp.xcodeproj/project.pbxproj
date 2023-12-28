@@ -38,6 +38,9 @@
 		0AD145B12B3C4A7800641D10 /* PaymentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145B02B3C4A7800641D10 /* PaymentInfoCell.swift */; };
 		0AD145B32B3C62E400641D10 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145B22B3C62E400641D10 /* Carousel.swift */; };
 		0AD145B52B3C64D600641D10 /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145B42B3C64D600641D10 /* CarouselLayout.swift */; };
+		0AD145B92B3C9AD100641D10 /* ChipsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145B82B3C9AD100641D10 /* ChipsViewCell.swift */; };
+		0AD145BB2B3CA1FB00641D10 /* LeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */; };
+		0AD145BD2B3D5BAD00641D10 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		0AD145B02B3C4A7800641D10 /* PaymentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoCell.swift; sourceTree = "<group>"; };
 		0AD145B22B3C62E400641D10 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		0AD145B42B3C64D600641D10 /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
+		0AD145B82B3C9AD100641D10 /* ChipsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsViewCell.swift; sourceTree = "<group>"; };
+		0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedLayout.swift; sourceTree = "<group>"; };
+		0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 		0AA56DEF2B33150E008BF50B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AD145B72B3C9AAD00641D10 /* Cells */,
 				0AA56DF32B33156B008BF50B /* HotelView.swift */,
 			);
 			path = View;
@@ -303,6 +310,7 @@
 				0A9C146A2B371D1100F8269F /* UILabel + Extension.swift */,
 				0A9C14752B38A59200F8269F /* UIStackView + Extension.swift */,
 				0A9C14772B3977D400F8269F /* UITextField + Extension.swift */,
+				0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */,
 				0AD145B62B3C64E100641D10 /* CustomViews */,
 			);
 			path = Extensions;
@@ -319,10 +327,35 @@
 		0AD145B62B3C64E100641D10 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0AD145BF2B3D5E7A00641D10 /* ChipsCollectionview */,
+				0AD145BE2B3D5E4E00641D10 /* Carousel */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		0AD145B72B3C9AAD00641D10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0AD145BE2B3D5E4E00641D10 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
 				0AD145B22B3C62E400641D10 /* Carousel.swift */,
 				0AD145B42B3C64D600641D10 /* CarouselLayout.swift */,
 			);
-			path = CustomViews;
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		0AD145BF2B3D5E7A00641D10 /* ChipsCollectionview */ = {
+			isa = PBXGroup;
+			children = (
+				0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */,
+				0AD145B82B3C9AD100641D10 /* ChipsViewCell.swift */,
+			);
+			path = ChipsCollectionview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,11 +451,14 @@
 				0A5BF8252B330FB800206621 /* AppDelegate.swift in Sources */,
 				0A9C14722B3874DD00F8269F /* BuyerInformationCell.swift in Sources */,
 				0AA56E122B3315EC008BF50B /* NumberViewController.swift in Sources */,
+				0AD145BD2B3D5BAD00641D10 /* UICollectionView + Extension.swift in Sources */,
+				0AD145B92B3C9AD100641D10 /* ChipsViewCell.swift in Sources */,
 				0A9C14762B38A59200F8269F /* UIStackView + Extension.swift in Sources */,
 				0A9C14782B3977D400F8269F /* UITextField + Extension.swift in Sources */,
 				0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */,
 				0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */,
 				0AA56E142B3315EC008BF50B /* NumberView.swift in Sources */,
+				0AD145BB2B3CA1FB00641D10 /* LeftAlignedLayout.swift in Sources */,
 				0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */,
 				0AC0A35B2B36BD4E00975C54 /* NumberTableViewCell.swift in Sources */,
 				0A9C146E2B38749B00F8269F /* HotelDescriptionCell.swift in Sources */,

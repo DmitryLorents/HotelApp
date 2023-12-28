@@ -27,11 +27,12 @@ class NumberTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var optionsCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.backgroundColor = .gray
-        return view
-    }()
+    private lazy var optionsCollectionView: UICollectionView = .createChipsCollectionView()
+//    {
+//        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+//        view.backgroundColor = .gray
+//        return view
+//    }()
     
     private lazy var aboutNumberButton: UIButton = {
         let button = UIButton(type: .system)
@@ -71,11 +72,28 @@ class NumberTableViewCell: UITableViewCell {
         numberChoosingButton.addGestureRecognizer(buttonAction)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateCollectionViewConstraints()
+    }
+    
     private func setViews() {
         //TODO - Change to background
         contentView.backgroundColor = NumberModel.backgroundColor
         contentView.addSubview(cellBackgroundView)
         cellBackgroundView.addSubviews(topCollectionView, descriptionLabel, optionsCollectionView, aboutNumberButton, priceLabel, numberChoosingButton)
+        //set collectionView delegates
+        optionsCollectionView.dataSource = self
+    }
+    
+    private func updateCollectionViewConstraints() {
+        let actualHeight = optionsCollectionView.collectionViewLayout.collectionViewContentSize.height + 1
+        optionsCollectionView.snp.removeConstraints()
+        optionsCollectionView.snp.remakeConstraints { make in
+            make.leading.trailing.equalTo(topCollectionView)
+            make.height.equalTo(actualHeight)
+            make.top.equalTo(descriptionLabel.snp.bottom).inset(-8)
+        }
     }
     
     private func setConstraints() {
@@ -94,11 +112,7 @@ class NumberTableViewCell: UITableViewCell {
             make.leading.trailing.equalTo(topCollectionView)
             make.top.equalTo(topCollectionView.snp.bottom).inset(-8)
         }
-        optionsCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(topCollectionView)
-            make.height.equalTo(29)
-            make.top.equalTo(descriptionLabel.snp.bottom).inset(-8)
-        }
+        updateCollectionViewConstraints()
         aboutNumberButton.snp.makeConstraints { make in
             make.leading.equalTo(topCollectionView)
             make.top.equalTo(optionsCollectionView.snp.bottom).inset(-8)
@@ -115,4 +129,24 @@ class NumberTableViewCell: UITableViewCell {
         }
     }
 
+}
+
+extension NumberTableViewCell: UpdateLayoutProtocol {
+    func updateLayout() {
+        self.layoutSubviews()
+    }
+}
+
+extension NumberTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        NumberModel.optionsStringArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChipsViewCell.reuseID, for: indexPath) as? ChipsViewCell else {return .init()}
+        cell.setTitle(title: NumberModel.optionsStringArray[indexPath.item])
+        return cell
+    }
+    
+    
 }

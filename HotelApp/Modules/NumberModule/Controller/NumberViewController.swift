@@ -23,6 +23,10 @@ class NumberViewController: UIViewController {
         title = ""
     }
     
+    override func viewDidLayoutSubviews() {
+        numberView.layoutSubviews()
+    }
+    
     //MARK: - Methods
     
     private func setViews() {

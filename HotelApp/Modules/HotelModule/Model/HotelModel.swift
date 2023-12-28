@@ -19,11 +19,13 @@ enum HotelModel {
     static let hotelPriceEnd = " за тур с перелетом"
     static let aboutHotelString = "Об отеле"
     static let hotelDescription = "Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
+    static let optionsStringArray = ["3-я линия", "Платный Wi-Fi в фойе", "30 км до аэропорта", "1 км до пляжа"]
     
     static let imageCornerRadius: CGFloat = 16
     static let viewCornerRadius: CGFloat = 12
     static let buttonCornerRadius: CGFloat = 15
     static let bottomViewHeight: CGFloat = 88
+    static let chipsCornerRadius: CGFloat = 5
     
     static let backgroundColor = UIColor(named: "BackgroundColor")
     static let buttonBackground = UIColor(named: "ButtonColor")
