@@ -72,10 +72,10 @@ final class HotelView: UIView {
     //MARK: - Set scrollView content size
     override func layoutSubviews() {
         super.layoutSubviews()
-        updateCollectionViewConstraints()
         updateTableViewConstraints()
+        updateCollectionViewConstraints()
         scrollView.contentSize = contentView.bounds.size
-        scrollView.contentSize.height += 170
+       // scrollView.contentSize.height += 170
     }
     
     //MARK: - Methods

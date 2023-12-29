@@ -21,6 +21,7 @@ class HotelViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = HotelModel.title
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
