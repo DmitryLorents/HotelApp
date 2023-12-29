@@ -10,12 +10,12 @@ import UIKit
 enum HotelModel {
     static let cellID = "cell"
     static let title = "Отель"
-    static let starLabelText = "  ★ 5 Превосходно  "
+    static let starLabelText = "  ★ 3 Ну такое...  "
     static let buttonTitle = "К выбору номера"
-    static let hotelName = "Steigenberger Makadi"
-    static let hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет"
+    static let hotelName = "Hotel name"//"Steigenberger Makadi"
+    static let hotelAdress = "Adress button"//"Madinat Makadi, Safaga Road, Makadi Bay, Египет"
     static let hotelPriceBeginning = "от "
-    static let priceString = "134 673 Р"
+    static let priceString = "XXXXXXXX"//"134 673 Р"
     static let hotelPriceEnd = " за тур с перелетом"
     static let aboutHotelString = "Об отеле"
     static let hotelDescription = "Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
@@ -39,7 +39,7 @@ enum HotelModel {
     
     static let standardFont16 = UIFont.systemFont(ofSize: 16, weight: .semibold)
     static let standardFont22 = UIFont.systemFont(ofSize: 22, weight: .semibold)
-    static let standardFont30 = UIFont.systemFont(ofSize: 30)
+    static let standardFont30 = UIFont.systemFont(ofSize: 30, weight: .semibold)
     
-    static let imageArray = [UIImage(named: "image20")!, UIImage(named: "image21")!]
+    static let imageArray = ["https://lh3.googleusercontent.com/p/AF1QipPeuNj7JH_tMP8YnMsgQO50UZj1Xt1QC3NssI1C=w287-h192-n-k-no-v1-rj", "https://lh3.googleusercontent.com/p/AF1QipOP-_YFak-eoenZ-SgLR0lVlBPTEE949BE64gyy=w287-h192-n-k-no-v1-rj", "https://lh3.googleusercontent.com/p/AF1QipN_NLwge8MvVjDhTaO5lFu4GuoUyLKWOYlhhZFK=w287-h192-n-k-no-v1-rj"]
 }

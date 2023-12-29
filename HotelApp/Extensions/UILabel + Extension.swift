@@ -41,6 +41,7 @@ extension UILabel {
     static func makeBigCellLabel(title: String) -> UILabel {
         let label = UILabel()
         label.text = title
+        label.numberOfLines = 0
         label.font = HotelModel.standardFont22
         return label
     }

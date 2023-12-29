@@ -18,7 +18,7 @@ class NumberTableViewCell: UITableViewCell {
         return view
         
     }()
-    private lazy var topCollectionView = Carousel(images: HotelModel.imageArray)
+    private lazy var topCollectionView = Carousel(imageURLs: [""])
     private let descriptionLabel: UILabel = {
        let label = UILabel()
         label.text = NumberModel.numberDescriptionString

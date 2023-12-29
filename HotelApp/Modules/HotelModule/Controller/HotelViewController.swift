@@ -7,10 +7,19 @@
 
 import UIKit
 
-class HotelViewController: UIViewController {
+final class HotelViewController: UIViewController {
     
     //MARK: - Parameters
-    let hotelView = HotelView()
+   private let hotelView = HotelView()
+    private let networkManager = NetworkManager.shared
+    private var hotelData: HotelParsingModel? {
+        didSet {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
+            hotelView.setupView(model: hotelData, buttonAction: tapGestureRecognizer)
+            hotelView.reloadCollectionView()
+            hotelView.layoutSubviews()
+        }
+    }
     
 //MARK: - Life cycle
     override func viewDidLoad() {
@@ -21,7 +30,7 @@ class HotelViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = HotelModel.title
-        
+        fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,16 +45,28 @@ class HotelViewController: UIViewController {
 
 //MARK: - Methods
     
+    private func fetchData() {
+        print(#function)
+        networkManager.getHotelData { results in
+            switch results {
+            case.failure(let error): print(error.localizedDescription)
+            case.success(let hotelData): 
+                DispatchQueue.main.async{
+                    self.hotelData = hotelData
+                }
+            }
+        }
+    }
+    
     private func setupViews() {
         view = hotelView
         hotelView.transferDelegates(delegate: self, dataSource: self)
         //set navigation action
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
-        hotelView.setupView(model: nil, buttonAction: tapGestureRecognizer)
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
+//        hotelView.setupView(model: nil, buttonAction: tapGestureRecognizer)
     }
     
     @objc private func navigationAction() {
-        print(#function)
         navigationController?.pushViewController(NumberViewController(), animated: true)
     }
 }
@@ -66,12 +87,13 @@ extension HotelViewController: UICollectionViewDelegate, UICollectionViewDelegat
 
 extension HotelViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        HotelModel.optionsStringArray.count
+        hotelData?.aboutTheHotel.peculiarities.count ?? 0//HotelModel.optionsStringArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChipsViewCell.reuseID, for: indexPath) as? ChipsViewCell else {return .init()}
-        cell.setTitle(title: HotelModel.optionsStringArray[indexPath.item])
+        let peculiarities = hotelData?.aboutTheHotel.peculiarities[indexPath.item] ?? "no data"
+        cell.setTitle(title: peculiarities)//HotelModel.optionsStringArray[indexPath.item])
         return cell
     }
     

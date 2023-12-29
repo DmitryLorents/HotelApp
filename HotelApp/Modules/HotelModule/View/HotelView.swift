@@ -7,6 +7,21 @@ final class HotelView: UIView {
     
     //MARK: - Parameters
     
+    private let networkManager = NetworkManager.shared
+    
+    private var peculiarities: [String]? {
+        didSet {
+            optionsCollectionView.reloadData()
+        }
+    }
+    
+    private var imageArray: [String]? {
+        didSet {
+            print("Images",imageArray?.count, imageArray)
+            topCollectionView.images = imageArray
+        }
+    }
+    
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.showsVerticalScrollIndicator = false
@@ -17,7 +32,7 @@ final class HotelView: UIView {
     
     private lazy var firstView: UIView = makeWhiteView()
     
-    private lazy var topCollectionView = Carousel(images: HotelModel.imageArray)
+    private lazy var topCollectionView = Carousel(imageURLs: HotelModel.imageArray)
     private let starLabel: UILabel = .makeStarLabel()
     private let hotelNameLabel: UILabel = .makeBigCellLabel(title: HotelModel.hotelName)
     private let hotelAdressButton: UIButton = .makehotelAdressButton()
@@ -85,9 +100,40 @@ final class HotelView: UIView {
         optionsCollectionView.delegate = delegate
     }
     
-    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
-        
+    public func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
         numberChoosingButton.addGestureRecognizer(buttonAction)
+        guard let model else {return}
+        starLabel.text = "  ★ \(model.rating) \(model.ratingName)  "
+        hotelNameLabel.text = model.name
+        hotelAdressButton.setTitle(model.adress, for: .normal)
+        setPriceLabelText(model: model)
+        hotelDescriptionLabel.text = model.aboutTheHotel.description
+        topCollectionView.images = HotelModel.imageArray//model.imageUrls
+    }
+    
+    public func reloadCollectionView() {
+        optionsCollectionView.reloadData()
+        //updateCollectionViewConstraints()
+        layoutSubviews()
+    }
+    
+    private func setPriceLabelText(model: HotelParsingModel) {
+                //beginning
+                let beginningAttributes: [NSAttributedString.Key: Any] = [.font: HotelModel.standardFont30]
+                let beginningAttributeContainer = AttributeContainer(beginningAttributes)
+            let title = HotelModel.hotelPriceBeginning + String(model.minimalPrice)
+                let beginningAttString = AttributedString((title),attributes: beginningAttributeContainer)
+                
+                //end
+                let endAttributes: [NSAttributedString.Key: Any] = [
+                    .font: HotelModel.standardFont16,
+                    .foregroundColor: UIColor.gray
+                ]
+                let endAttContainer = AttributeContainer(endAttributes)
+        let subtitle = " " + model.priceForIt.lowercased()
+                let endAttString = AttributedString(subtitle, attributes: endAttContainer)
+                let fullAttText = beginningAttString + endAttString
+                priceLabel.attributedText = NSAttributedString(fullAttText)
     }
     
     private func updateCollectionViewConstraints() {
@@ -122,6 +168,7 @@ final class HotelView: UIView {
         firstView.addSubviews(topCollectionView, starLabel,hotelNameLabel, hotelAdressButton, priceLabel)
         secondView.addSubviews(aboutHotelLabel, optionsCollectionView, hotelDescriptionLabel, buttonsTableView)
         thirdView.addSubview(numberChoosingButton)
+        
     }
 }
 //MARK: - Set constraints
@@ -152,7 +199,7 @@ extension HotelView {
         }
         
         hotelNameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(topCollectionView)
+            make.leading.trailing.equalTo(topCollectionView)
             make.top.equalTo(starLabel.snp.bottom).inset(-8)
         }
         hotelAdressButton.snp.makeConstraints { make in
@@ -202,11 +249,11 @@ extension HotelView {
         
     }
 }
-
+//MARK: - UITableViewDelegate
 extension HotelView: UITableViewDelegate {
     
 }
-
+//MARK: - UITableViewDataSource
 extension HotelView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         HotelModel.tableTitlesArray.count

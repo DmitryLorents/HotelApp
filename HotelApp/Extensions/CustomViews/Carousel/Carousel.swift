@@ -19,7 +19,7 @@ class Carousel: UIView {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: HotelModel.cellID)
         return collectionView
     }()
-    var images: [UIImage]? {
+    var images: [String]? {
         didSet {
             collectionView.reloadData()
         }
@@ -27,8 +27,8 @@ class Carousel: UIView {
     
     //MARK: - Init
     
-    public init(images: [UIImage]?) {
-        self.images = images
+    public init(imageURLs: [String]?) {
+        self.images = imageURLs
         super.init(frame: .zero)
         setView()
         setConstraints()
@@ -63,12 +63,13 @@ extension Carousel: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelModel.cellID, for: indexPath)
         //insert ImageView
         guard let images else {return .init()}
-        let imageView = UIImageView(image: images[indexPath.item])
+        let imageView = UIImageView()//image: UIImage(systemName: <#T##String#>))
         imageView.contentMode = .scaleAspectFill
         cell.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        imageView.imageFromURL(images[indexPath.item])
         //imageView.frame = cell.frame
         return cell
     }
