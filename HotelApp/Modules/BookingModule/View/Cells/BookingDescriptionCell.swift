@@ -44,6 +44,10 @@ class BookingDescriptionCell: UITableViewCell {
     }
     
     //MARK: - Methods
+    public func setCellData(model: BookingParsingModel?) {
+        
+    }
+    
     private func fulfillVerticalStackView() {
         for index in 0..<BookingModel.bookingDescriptionArray.count {
             let hStack = UIStackView()

@@ -44,7 +44,6 @@ class NumberViewController: UIViewController {
             case .failure(let error): print(error.localizedDescription)
             case .success(let data):
                 DispatchQueue.main.async {
-                    print("Number data downloaded", data)
                     self.roomsData = data
                 }
             }
@@ -61,11 +60,11 @@ class NumberViewController: UIViewController {
         navigationController?.pushViewController(BookingViewController(), animated: true)
     }
 }
-
+//MARK: - UITableViewDelegate
 extension NumberViewController: UITableViewDelegate {
     
 }
-
+//MARK: - UITableViewDataSource
 extension NumberViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         roomsData?.rooms.count ?? 0

@@ -39,6 +39,19 @@ class PaymentInfoCell: UITableViewCell {
     }
     
     //MARK: - Methods
+    
+    public func setCellData(model: BookingParsingModel?) {
+        guard let model else {return}
+        guard let hStacks = verticalStack.subviews as? [UIStackView] else {return}
+        for (index, stack) in hStacks.enumerated() {
+            guard let label = stack.arrangedSubviews[1] as? UILabel else {
+                print("No labels in stack")
+                return
+            }
+            label.text = model.getTextBy(index: index)
+            
+        }
+    }
     private func fulfillVerticalStackView() {
         for index in 0..<BookingModel.paymentDescriptionArray.count {
             let hStack = UIStackView()

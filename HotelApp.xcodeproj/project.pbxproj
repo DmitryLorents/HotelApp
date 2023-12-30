@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1087A72B4075B800D5870D /* BookingParsingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1087A62B4075B800D5870D /* BookingParsingModel.swift */; };
 		0A5BF8252B330FB800206621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BF8242B330FB800206621 /* AppDelegate.swift */; };
 		0A5BF8272B330FB800206621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BF8262B330FB800206621 /* SceneDelegate.swift */; };
 		0A5BF82E2B330FB900206621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BF82D2B330FB900206621 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1087A62B4075B800D5870D /* BookingParsingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingParsingModel.swift; sourceTree = "<group>"; };
 		0A5BF8212B330FB800206621 /* HotelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5BF8242B330FB800206621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A5BF8262B330FB800206621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA56DFB2B3315EC008BF50B /* BookingModel.swift */,
+				0A1087A62B4075B800D5870D /* BookingParsingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				0AD145B92B3C9AD100641D10 /* ChipsViewCell.swift in Sources */,
 				0AD145C12B3DA51A00641D10 /* ButtonsTableViewCell.swift in Sources */,
 				0A9C14762B38A59200F8269F /* UIStackView + Extension.swift in Sources */,
+				0A1087A72B4075B800D5870D /* BookingParsingModel.swift in Sources */,
 				0A9C14782B3977D400F8269F /* UITextField + Extension.swift in Sources */,
 				0AA56DF42B33156B008BF50B /* HotelView.swift in Sources */,
 				0AA56DF22B331543008BF50B /* HotelViewController.swift in Sources */,

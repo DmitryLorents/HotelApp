@@ -8,11 +8,17 @@
 import UIKit
 
 class BookingViewController: UIViewController {
-
-    //MARK: - Parameters
-    let bookingView = BookingView()
     
-//MARK: - Life cycle
+    //MARK: - Parameters
+    private  let bookingView = BookingView()
+    private let networkManager = NetworkManager.shared
+    private var bookingData: BookingParsingModel? {
+        didSet {
+            bookingView.setupData(model: bookingData)
+        }
+    }
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -22,6 +28,7 @@ class BookingViewController: UIViewController {
         super.viewWillAppear(animated)
         //set title
         title = BookingModel.title
+        fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,13 +40,26 @@ class BookingViewController: UIViewController {
         super.viewWillDisappear(animated)
         title = ""
     }
-
-//MARK: - Methods
+    
+    //MARK: - Methods
+    
+    private func fetchData() {
+        networkManager.getBookingData { result in
+            switch result {
+            case .failure(let error): print(error.localizedDescription)
+            case.success(let bookingData):
+                DispatchQueue.main.async{
+                    print("Booking data downloaded:", bookingData)
+                    self.bookingData = bookingData
+                }
+            }
+        }
+    }
     
     private func setupViews() {
         view = bookingView
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationAction))
-        bookingView.setupView(model: nil, buttonAction: tapGestureRecognizer, delegate: self, dataSource: self)
+        bookingView.setupView(buttonAction: tapGestureRecognizer, delegate: self, dataSource: self)
     }
     
     @objc private func navigationAction() {
@@ -59,8 +79,10 @@ extension BookingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0: guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
+            cell.setCellData(model: bookingData)
             return cell
         case 1: guard let cell = tableView.dequeueReusableCell(withIdentifier: BookingDescriptionCell.reuseID, for: indexPath) as? BookingDescriptionCell else {return .init()}
+            cell.setCellData(model: bookingData)
             return cell
         case 2: guard let cell = tableView.dequeueReusableCell(withIdentifier: BuyerInformationCell.reuseID, for: indexPath) as? BuyerInformationCell else {return .init()}
             return cell
@@ -69,6 +91,7 @@ extension BookingViewController: UITableViewDataSource {
         case 4: guard let cell = tableView.dequeueReusableCell(withIdentifier: AddTouristCell.reuseID, for: indexPath) as? AddTouristCell else {return .init()}
             return cell
         case 5: guard let cell = tableView.dequeueReusableCell(withIdentifier: PaymentInfoCell.reuseID, for: indexPath) as? PaymentInfoCell else {return .init()}
+            cell.setCellData(model: bookingData)
             return cell
         default : guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelDescriptionCell.reuseID, for: indexPath) as? HotelDescriptionCell else {return .init()}
             return cell

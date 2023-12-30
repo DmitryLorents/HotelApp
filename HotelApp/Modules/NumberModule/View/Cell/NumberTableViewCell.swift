@@ -74,7 +74,8 @@ class NumberTableViewCell: UITableViewCell {
     private func setPriceLabelText(model: Room) {
         let beginningAttributes: [NSAttributedString.Key: Any] = [.font: HotelModel.standardFont30]
         let beginningAttributeContainer = AttributeContainer(beginningAttributes)
-        let beginningAttString = AttributedString(("\(model.price)"),attributes: beginningAttributeContainer)
+        let title = "\(model.price) "
+        let beginningAttString = AttributedString((title),attributes: beginningAttributeContainer)
         
         //end
         let endAttributes: [NSAttributedString.Key: Any] = [
@@ -82,7 +83,8 @@ class NumberTableViewCell: UITableViewCell {
             .foregroundColor: UIColor.gray
         ]
         let endAttContainer = AttributeContainer(endAttributes)
-        let endAttString = AttributedString(model.pricePer, attributes: endAttContainer)
+        let subtitle = model.pricePer.lowercased()
+        let endAttString = AttributedString(subtitle, attributes: endAttContainer)
         let fullAttText = beginningAttString + endAttString
         priceLabel.attributedText = NSAttributedString(fullAttText)
     }

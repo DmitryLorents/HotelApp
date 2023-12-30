@@ -11,6 +11,14 @@ class BookingView: UIView {
 
     //MARK: - Parameters
     
+    private var bookingData: BookingParsingModel? {
+        didSet {
+            guard let bookingData else {return}
+            tableView.reloadData()
+            setPaymentButtonTitle(price: bookingData.fullPrice)
+        }
+    }
+    
     private lazy var tableView: UITableView = {
        let table = UITableView()
         table.separatorStyle = .none
@@ -51,13 +59,16 @@ class BookingView: UIView {
     
     //MARK: - Methods
     
-    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+   public func setupView(buttonAction: UITapGestureRecognizer, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         paymentButton.addGestureRecognizer(buttonAction)
         tableView.dataSource = dataSource
         tableView.delegate = delegate
     }
     
-    func reloadTable() {
+   public func setupData(model: BookingParsingModel?) {
+        self.bookingData = model
+    }
+   public func reloadTable() {
         tableView.reloadData()
     }
     
@@ -65,6 +76,16 @@ class BookingView: UIView {
         backgroundColor = .systemBackground
         addSubviews(tableView, bottomView)
         bottomView.addSubview(paymentButton)
+    }
+    
+    private func setPaymentButtonTitle(price: Int) {
+        let attributes : [NSAttributedString.Key: Any] = [
+            .font: HotelModel.standardFont16,
+            .foregroundColor: UIColor.white
+        ]
+        let fullPrice = String(price)
+        let attributedTitle = NSAttributedString(string: fullPrice , attributes: attributes)
+        paymentButton.setAttributedTitle(attributedTitle, for: .normal)
     }
 }
 //MARK: - Set constraints

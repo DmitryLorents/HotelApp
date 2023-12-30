@@ -41,10 +41,10 @@ class HotelDescriptionCell: UITableViewCell {
     }
     
     //MARK: - Methods
-//    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
-//        
-//        numberChoosingButton.addGestureRecognizer(buttonAction)
-//    }
+
+    public func setCellData(model: BookingParsingModel?) {
+        
+    }
     
     private func setupViews() {
         backgroundColor = .clear
