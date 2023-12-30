@@ -33,6 +33,10 @@ class NumberView: UIView {
     
     //MARK: - Methods
     
+    public func setupView(model: NumberParsingModel) {
+        
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         delegate?.updateLayout()

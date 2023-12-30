@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class Carousel: UIView {
 //MARK: - Parameters
@@ -63,14 +64,16 @@ extension Carousel: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelModel.cellID, for: indexPath)
         //insert ImageView
         guard let images else {return .init()}
-        let imageView = UIImageView()//image: UIImage(systemName: <#T##String#>))
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         cell.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        imageView.imageFromURL(images[indexPath.item])
-        //imageView.frame = cell.frame
+        //set image from network
+        imageView.kf.indicatorType = .activity
+        let placeholder = UIImage(systemName: "photo")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        imageView.kf.setImage(with: URL(string: images[indexPath.item]), placeholder: placeholder, progressBlock: nil)
         return cell
     }
     

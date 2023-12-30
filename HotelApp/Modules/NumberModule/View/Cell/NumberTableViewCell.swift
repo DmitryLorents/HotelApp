@@ -19,20 +19,16 @@ class NumberTableViewCell: UITableViewCell {
         
     }()
     private lazy var topCollectionView = Carousel(imageURLs: [""])
-    private let descriptionLabel: UILabel = {
-       let label = UILabel()
-        label.text = NumberModel.numberDescriptionString
-        label.font = HotelModel.standardFont22
-        label.numberOfLines = 0
-        return label
-    }()
+    private let descriptionLabel: UILabel = .makeBigCellLabel(title: NumberModel.numberDescriptionString)
+//    {
+//       let label = UILabel()
+//        label.text = NumberModel.numberDescriptionString
+//        label.font = HotelModel.standardFont22
+//        label.numberOfLines = 0
+//        return label
+//    }()
     
     private lazy var optionsCollectionView: UICollectionView = .createChipsCollectionView()
-//    {
-//        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//        view.backgroundColor = .gray
-//        return view
-//    }()
     
     private lazy var aboutNumberButton: UIButton = {
         let button = UIButton(type: .system)
@@ -67,9 +63,14 @@ class NumberTableViewCell: UITableViewCell {
     
     //MARK: - Methods
     
-    func setupView(model: HotelParsingModel?, buttonAction: UITapGestureRecognizer) {
-        
+    func setupView(model: Room?, buttonAction: UITapGestureRecognizer) {
         numberChoosingButton.addGestureRecognizer(buttonAction)
+        guard let model else {
+            print("model = nil")
+            return
+        }
+        topCollectionView.images = model.imageUrls
+        descriptionLabel.text = model.name
     }
     
     override func layoutSubviews() {

@@ -4,7 +4,15 @@ import UIKit
 
 class NumberViewController: UIViewController {
     //MARK: - Parameters
+    let networkManager = NetworkManager.shared
     let numberView = NumberView()
+    var roomsData: NumberParsingModel? {
+        didSet {
+            guard let roomsData else {return}
+            numberView.setupView(model: roomsData)
+            numberView.reloadTable()
+        }
+    }
     
     
     //MARK: - Life cycle
@@ -16,6 +24,7 @@ class NumberViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = NumberModel.title
+        fetchData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -28,6 +37,19 @@ class NumberViewController: UIViewController {
     }
     
     //MARK: - Methods
+    
+    private func fetchData() {
+        networkManager.getNumberData { result in
+            switch result {
+            case .failure(let error): print(error.localizedDescription)
+            case .success(let data):
+                DispatchQueue.main.async {
+                    print("Number data downloaded", data)
+                    self.roomsData = data
+                }
+            }
+        }
+    }
     
     private func setViews() {
         view = numberView
@@ -46,13 +68,14 @@ extension NumberViewController: UITableViewDelegate {
 
 extension NumberViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        roomsData?.rooms.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NumberTableViewCell.reuseID , for: indexPath) as? NumberTableViewCell else {return .init()}
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellButtonAction))
-        cell.setupView(model: nil, buttonAction: tapGestureRecognizer)
+        let room = roomsData?.rooms[indexPath.row]
+        cell.setupView(model: room, buttonAction: tapGestureRecognizer)
         return cell
     }
     

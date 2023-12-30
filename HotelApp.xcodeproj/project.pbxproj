@@ -44,6 +44,8 @@
 		0AD145C12B3DA51A00641D10 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */; };
 		0ADEB3922B3EE0F900BD52BD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3912B3EE0F900BD52BD /* NetworkManager.swift */; };
 		0ADEB3942B3F4FC900BD52BD /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3932B3F4FC900BD52BD /* UIImageView + Extension.swift */; };
+		0ADEB3962B3FE3C700BD52BD /* NumberParsongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3952B3FE3C700BD52BD /* NumberParsongModel.swift */; };
+		0ADEB3992B3FEB3C00BD52BD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADEB3982B3FEB3C00BD52BD /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,7 @@
 		0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		0ADEB3912B3EE0F900BD52BD /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0ADEB3932B3F4FC900BD52BD /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		0ADEB3952B3FE3C700BD52BD /* NumberParsongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParsongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADEB3992B3FEB3C00BD52BD /* Kingfisher in Frameworks */,
 				0AA56E1A2B332A26008BF50B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA56E092B3315EC008BF50B /* NumberModel.swift */,
+				0ADEB3952B3FE3C700BD52BD /* NumberParsongModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			name = HotelApp;
 			packageProductDependencies = (
 				0AA56E192B332A26008BF50B /* SnapKit */,
+				0ADEB3982B3FEB3C00BD52BD /* Kingfisher */,
 			);
 			productName = HotelApp;
 			productReference = 0A5BF8212B330FB800206621 /* HotelApp.app */;
@@ -424,6 +430,7 @@
 			mainGroup = 0A5BF8182B330FB800206621;
 			packageReferences = (
 				0AA56E182B332A26008BF50B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0ADEB3972B3FEB3C00BD52BD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0A5BF8222B330FB800206621 /* Products */;
 			projectDirPath = "";
@@ -453,6 +460,7 @@
 				0AD145AF2B3C3D5E00641D10 /* AddTouristCell.swift in Sources */,
 				0AA56E112B3315EC008BF50B /* OrderView.swift in Sources */,
 				0AA56E132B3315EC008BF50B /* NumberModel.swift in Sources */,
+				0ADEB3962B3FE3C700BD52BD /* NumberParsongModel.swift in Sources */,
 				0AA56E102B3315EC008BF50B /* OrderModel.swift in Sources */,
 				0AD145B12B3C4A7800641D10 /* PaymentInfoCell.swift in Sources */,
 				0AA56DF62B33157B008BF50B /* HotelModel.swift in Sources */,
@@ -702,6 +710,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		0ADEB3972B3FEB3C00BD52BD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -709,6 +725,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0AA56E182B332A26008BF50B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		0ADEB3982B3FEB3C00BD52BD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ADEB3972B3FEB3C00BD52BD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -46,29 +46,35 @@ final class  NetworkManager {
         getData(urlString: urlString, parseProtocol: HotelParsingModel.self, completion: completion)
     }
     
-    func imageFromURL(_ URLString: String) -> UIImage? {
-        var image: UIImage?
-        //If imageurl's imagename has space then this line going to work for this
-        let imageServerUrl = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        
-        if let url = URL(string: imageServerUrl) {
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
-                
-                if error != nil {
-                    DispatchQueue.main.async {
-                       image = UIImage(systemName: "photo")
-                    }
-                    return
-                }
-                DispatchQueue.main.async {
-                    if let data = data {
-                        if let downloadedImage = UIImage(data: data) {
-                            image = downloadedImage
-                        }
-                    }
-                }
-            }).resume()
-        }
-        return image
+    func getNumberData(completion: @escaping (Result<NumberParsingModel, Error>) -> () ) {
+        let urlString = "https://run.mocky.io/v3/8b532701-709e-4194-a41c-1a903af00195"
+        getData(urlString: urlString, parseProtocol: NumberParsingModel.self, completion: completion)
     }
+    
+//    func imageFromURL(_ URLString: String) -> UIImage? {
+//        var image: UIImage?
+//        //If imageurl's imagename has space then this line going to work for this
+//        let imageServerUrl = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        
+//        if let url = URL(string: imageServerUrl) {
+//            URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+//                
+//                if error != nil {
+//                    DispatchQueue.main.async {
+//                       image = UIImage(systemName: "photo")
+//                    }
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    if let data = data {
+//                        if let downloadedImage = UIImage(data: data) {
+//                            image = downloadedImage
+//                        }
+//                    }
+//                }
+//            }).resume()
+//        }
+//        return image
+//    }
 }
+

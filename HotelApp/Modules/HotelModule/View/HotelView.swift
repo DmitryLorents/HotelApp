@@ -108,7 +108,7 @@ final class HotelView: UIView {
         hotelAdressButton.setTitle(model.adress, for: .normal)
         setPriceLabelText(model: model)
         hotelDescriptionLabel.text = model.aboutTheHotel.description
-        topCollectionView.images = HotelModel.imageArray//model.imageUrls
+        topCollectionView.images = model.imageUrls
     }
     
     public func reloadCollectionView() {
