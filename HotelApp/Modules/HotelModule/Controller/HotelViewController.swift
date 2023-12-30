@@ -46,7 +46,6 @@ final class HotelViewController: UIViewController {
 //MARK: - Methods
     
     private func fetchData() {
-        print(#function)
         networkManager.getHotelData { results in
             switch results {
             case.failure(let error): print(error.localizedDescription)

@@ -73,7 +73,7 @@ extension Carousel: UICollectionViewDataSource {
         //set image from network
         imageView.kf.indicatorType = .activity
         let placeholder = UIImage(systemName: "photo")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-        imageView.kf.setImage(with: URL(string: images[indexPath.item]), placeholder: placeholder, progressBlock: nil)
+        imageView.kf.setImage(with: URL(string: images[indexPath.item]), placeholder: placeholder, options: [.transition(.fade(0.3))],  progressBlock: nil)
         return cell
     }
     

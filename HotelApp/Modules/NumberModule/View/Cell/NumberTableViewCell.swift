@@ -11,6 +11,14 @@ class NumberTableViewCell: UITableViewCell {
     //MARK: - Parameters
     static let reuseID = String(describing: NumberTableViewCell.self)
     
+    private var peculiarities: [String]? {
+        didSet {
+            print("Peculiarities:", peculiarities)
+            guard let peculiarities else {return}
+            print("didSet")
+            optionsCollectionView.reloadData()
+        }
+    }
     private let cellBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
@@ -20,16 +28,7 @@ class NumberTableViewCell: UITableViewCell {
     }()
     private lazy var topCollectionView = Carousel(imageURLs: [""])
     private let descriptionLabel: UILabel = .makeBigCellLabel(title: NumberModel.numberDescriptionString)
-//    {
-//       let label = UILabel()
-//        label.text = NumberModel.numberDescriptionString
-//        label.font = HotelModel.standardFont22
-//        label.numberOfLines = 0
-//        return label
-//    }()
-    
     private lazy var optionsCollectionView: UICollectionView = .createChipsCollectionView()
-    
     private lazy var aboutNumberButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = NumberModel.aboutNumberBAckgroundColor?.withAlphaComponent(0.1)
@@ -65,12 +64,27 @@ class NumberTableViewCell: UITableViewCell {
     
     func setupView(model: Room?, buttonAction: UITapGestureRecognizer) {
         numberChoosingButton.addGestureRecognizer(buttonAction)
-        guard let model else {
-            print("model = nil")
-            return
-        }
+        guard let model else {return}
         topCollectionView.images = model.imageUrls
         descriptionLabel.text = model.name
+        peculiarities = model.peculiarities
+        setPriceLabelText(model: model)
+    }
+    
+    private func setPriceLabelText(model: Room) {
+        let beginningAttributes: [NSAttributedString.Key: Any] = [.font: HotelModel.standardFont30]
+        let beginningAttributeContainer = AttributeContainer(beginningAttributes)
+        let beginningAttString = AttributedString(("\(model.price)"),attributes: beginningAttributeContainer)
+        
+        //end
+        let endAttributes: [NSAttributedString.Key: Any] = [
+            .font: HotelModel.standardFont16,
+            .foregroundColor: UIColor.gray
+        ]
+        let endAttContainer = AttributeContainer(endAttributes)
+        let endAttString = AttributedString(model.pricePer, attributes: endAttContainer)
+        let fullAttText = beginningAttString + endAttString
+        priceLabel.attributedText = NSAttributedString(fullAttText)
     }
     
     override func layoutSubviews() {
@@ -141,12 +155,16 @@ extension NumberTableViewCell: UpdateLayoutProtocol {
 //MARK: - UICollectionViewDataSource
 extension NumberTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        NumberModel.optionsStringArray.count
+        peculiarities?.count ?? NumberModel.optionsStringArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChipsViewCell.reuseID, for: indexPath) as? ChipsViewCell else {return .init()}
-        cell.setTitle(title: NumberModel.optionsStringArray[indexPath.item])
+        if let peculiarities {
+            cell.setTitle(title: peculiarities[indexPath.item])
+        } else {
+            cell.setTitle(title: NumberModel.optionsStringArray[indexPath.item])
+        }
         return cell
     }
 }
