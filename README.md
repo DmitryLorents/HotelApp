@@ -15,7 +15,7 @@
 
 ## Developers:
 
-* [DmitryLorents *(teamleader)*](https://github.com/DmitryLorents)
+* [DmitryLorents](https://github.com/DmitryLorents)
 
 
 ## Screenshots
