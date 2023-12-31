@@ -43,6 +43,7 @@
 		0AD145BB2B3CA1FB00641D10 /* LeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */; };
 		0AD145BD2B3D5BAD00641D10 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */; };
 		0AD145C12B3DA51A00641D10 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */; };
+		0AD4EC452B41A7B500CAF252 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD4EC442B41A7B400CAF252 /* README.md */; };
 		0ADEB3922B3EE0F900BD52BD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3912B3EE0F900BD52BD /* NetworkManager.swift */; };
 		0ADEB3942B3F4FC900BD52BD /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3932B3F4FC900BD52BD /* UIImageView + Extension.swift */; };
 		0ADEB3962B3FE3C700BD52BD /* NumberParsongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEB3952B3FE3C700BD52BD /* NumberParsongModel.swift */; };
@@ -87,6 +88,7 @@
 		0AD145BA2B3CA1FB00641D10 /* LeftAlignedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedLayout.swift; sourceTree = "<group>"; };
 		0AD145BC2B3D5BAD00641D10 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 		0AD145C02B3DA51A00641D10 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
+		0AD4EC442B41A7B400CAF252 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0ADEB3912B3EE0F900BD52BD /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0ADEB3932B3F4FC900BD52BD /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		0ADEB3952B3FE3C700BD52BD /* NumberParsongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParsongModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		0A5BF8182B330FB800206621 = {
 			isa = PBXGroup;
 			children = (
+				0AD4EC442B41A7B400CAF252 /* README.md */,
 				0A5BF8232B330FB800206621 /* HotelApp */,
 				0A5BF8222B330FB800206621 /* Products */,
 			);
@@ -449,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD4EC452B41A7B500CAF252 /* README.md in Resources */,
 				0A5BF82E2B330FB900206621 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
